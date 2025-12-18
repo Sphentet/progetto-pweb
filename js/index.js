@@ -29,7 +29,7 @@ async function manageCredentials(){
         data.append('password', JSON.stringify(document.getElementById("pass").value));
 
         try{
-            const response=await fetch("nonfatemi.php",{
+            const response=await fetch("php/login.php",{
                 method: 'POST',
                 body: data
             })

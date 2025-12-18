@@ -213,6 +213,11 @@ button{
     font-size: 1.3rem;
     position: relative;
     right: 0px;
+    cursor: pointer;
+}
+
+button:hover{
+    text-shadow: 0 0 2vh #000000;
 }
 
 #password-field, #user {
