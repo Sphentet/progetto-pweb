@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA PACKET</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="IMMAGINE">
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+    <div id="container">
+
+        <div id="interfaccia">
+
+            <h1>PACKÈTMON</h1>
+
+            
+            
+            <div id="packetCard">
+                <h2>Welcome to the Packètmon world!</h2>
+
+                <div id="packet"><div id="packetButton"></div></div>
+
+                <div class="row">
+
+                    <label for="user">Username:</label>
+
+                    <label for="pass">Password:</label>
+
+                </div>
+
+                <div class="row">
+                    
+                    <input id="user" type="text" required pattern="[a-zA-Z]{2,8}" title="Username must have 2 to 8 letters"> 
+
+                    <div id="password-field">
+                        <input id="pass" type="password" required pattern="^[A-Z][a-zA-Z]{2,6}[0-9]$" title="Password must begin with a capital letter, followed by 2 to 6 letters and must end with a digit">
+                        <button type="button" id="togglePass" aria-label="Mostra password">👁️</button>
+                    </div>
+
+                </div>
+                
+                <button id="packetCardButton">Inizia l'avventura</button>
+            </div>
+
+
+
+
+
+            
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
+
+
+
+
