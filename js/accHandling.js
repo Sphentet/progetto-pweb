@@ -1,4 +1,6 @@
 
+"use strict"
+
 let toggled=true;
 
 
@@ -14,9 +16,9 @@ function togglePassword(e){
 
 
 
-async function manageCredentials(){
-    if(document.querySelector(".messaggio")!==null){
-        document.body.removeChild(document.querySelector(".messaggio"));
+async function manageCredentials(e){
+    if(document.querySelector(".message")!==null){
+        document.body.removeChild(document.querySelector(".message"));
     }
     document.getElementById("packetCardButton").disabled=true;
 
@@ -29,7 +31,8 @@ async function manageCredentials(){
         data.append('password', JSON.stringify(document.getElementById("pass").value));
 
         try{
-            const response=await fetch("php/login.php",{
+            let type=e.target.name;
+            const response=await fetch(((type=="sign-in"||type=="delete")?"../":"")+"php/accHandling.php?reqType="+type,{
                 method: 'POST',
                 body: data
             })
@@ -44,12 +47,14 @@ async function manageCredentials(){
     else{
         
         let message=document.createElement('div');
-        message.className='messaggio';
+        message.className='message';
         message.innerText="Credentials do not match the required patterns";
         document.body.appendChild(message);
     }
 
     document.getElementById("packetCardButton").disabled=false;
+    document.getElementById("user").value="";
+    document.getElementById("pass").value="";
 
 }
 

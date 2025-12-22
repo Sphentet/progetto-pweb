@@ -44,10 +44,39 @@ body {
     align-items: center;     
 }
 
+#menu{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width:13%;
+    text-align: center;
+    color: #ffd700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+    padding: 2vh;
+}
+
+hr{
+    color: white;
+    margin: 1vh 0;
+    width: 95%;
+}
+
+a{
+    color: #ffd700;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
 
 
 
-#interfaccia {
+
+#interface {
     min-width: 30rem;
     min-height: 30rem;
     height:55vh;
@@ -75,7 +104,7 @@ h1 {
     letter-spacing: 3px;
     position: relative;
     
-    /* Effetto Aura Iniziale (Dorato) */
+    
     text-shadow: 
         0 0 7px #fff,
         0 0 10px #ffd700,
@@ -88,20 +117,20 @@ h1 {
 
 @keyframes auraPulse {
     0% {
-        /* Fase "Oscura/Antica" - Bronzo scuro e ombre */
+        
         text-shadow: 
             0 0 4px #fff,
             0 0 10px #d4af37,
-            0 0 18px #8b6508, /* Oro scuro */
-            0 0 30px #5c4002, /* Ombra dorata */
-            0 0 40px #3d2b01; /* Quasi nero */
+            0 0 18px #8b6508, 
+            0 0 30px #5c4002, 
+            0 0 40px #3d2b01; 
     }
     100% {
-        /* Fase "Potere" - Oro brillante */
+        
         text-shadow: 
             0 0 4px #fff,
             0 0 12px #fff,
-            0 0 22px #ffd700, /* Oro puro */
+            0 0 22px #ffd700, 
             0 0 38px #ffd700,
             0 0 60px #ffd700;
     }
@@ -139,18 +168,10 @@ h1 {
 #packet {
     width: 5.5vh;
     aspect-ratio: 1/1;
-    background: linear-gradient(180deg,
-        #e70606 0%, #e70606 48%,
-        black 48%, black 52%,
-        rgb(173, 137, 92) 52%,  rgb(173, 137, 92) 100%
-    );
-    border: 3px solid #000000;
-    margin: 0 auto 1rem;
+    
     animation: spin 4s linear infinite;
     
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
 }
 
 @keyframes spin {
@@ -159,12 +180,10 @@ h1 {
 }
 
 
-#packetButton {
-    width: 1.5vh;
-    height: 1.5vh;
-    border-radius: 50%;
-    background-color: #6f6f6f;
-    border: 3px solid #000000;
+#packet>img{
+    display: block;
+    height: 100%;
+    aspect-ratio: 1/1;
 }
 
 
@@ -250,7 +269,7 @@ button:hover{
     color: rgb(184, 0, 0);
 }
 
-.messaggio{
+.message{
     background-color: rgb(128, 0, 0);
     font-size: 2rem;
     padding: 1rem;
@@ -263,6 +282,32 @@ button:hover{
     border-radius: 10px;
     border: 5px solid black;
 }
+
+
+
+
+
+/*Per info page*/
+
+#infotext{
+
+    height:78%;
+    width:78%;
+    padding: 5vh;
+    background: rgb(176, 87, 102);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid #ffcc02;
+    font-size: 1.5vh;
+
+
+
+}
+
+
+
+
 
 
 

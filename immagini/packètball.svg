@@ -1,0 +1,9 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Top (rosso) -->
+  <rect x="2" y="3.5" width="116" height="56" fill="#e53935" stroke="#000" stroke-width="4"/>
+  <!-- Bottom (marroncino) -->
+  <rect x="2" y="60.5" width="116" height="56" fill="#9e7755" stroke="#000" stroke-width="4"/>
+  <!-- Pulsante tondo grigio scuro -->
+  <circle cx="60" cy="60" r="16" fill="#d4d4d4" stroke="#000" stroke-width="4"/>
+  <circle cx="60" cy="60" r="11" fill="#d4d4d4" stroke="#000" stroke-width=""/>
+</svg>

@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -18,9 +17,9 @@ session_destroy();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PACKÈTMON</title>
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="icon" href="immagini/packètball.svg">
-    <script src="js/accHandling.js"></script>
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="icon" href="../immagini/packètball.svg">
+    <script src="../js/accHandling.js"></script>
 </head>
 <body>
 
@@ -28,11 +27,11 @@ session_destroy();
 
         <div id="menu">
             <hr>
-            <a href="html/sign-in.php">Sign-In</a>
+            <a href="sign-in.php">Sign-In</a>
             <hr>
-            <a href="html/delete.php">Delete Account</a>
+            <a href="../index.php">Login</a>
             <hr>
-            <a href="html/info.html">Info Page</a>
+            <a href="info.html">Info Page</a>
             <hr>
         </div>
 
@@ -44,9 +43,9 @@ session_destroy();
             
             
             <div id="packetCard">
-                <h2>Welcome to the Packètmon world!</h2>
+                <h2>We hope to see you again someday!</h2>
 
-                <div id="packet"><img src="immagini/packètball.svg" alt="packètball"/></div>
+                <div id="packet"><img src="../immagini/packètball.svg" alt="packètball"/></div>
 
                 <div class="row">
 
@@ -67,7 +66,7 @@ session_destroy();
 
                 </div>
                 
-                <button id="packetCardButton" name="log-in">Start Adventure</button>
+                <button id="packetCardButton" name="delete">Delete Account</button>
             </div>
 
 
@@ -82,7 +81,4 @@ session_destroy();
     
 </body>
 </html>
-
-
-
 
