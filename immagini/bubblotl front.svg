@@ -1,0 +1,105 @@
+
+<svg width="512" height="512" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .outline { fill: #102030; } /* Dark Navy Outline */
+      .skin    { fill: #40A0E0; } /* Cyan Blue Skin */
+      .shadow  { fill: #206090; } /* Dark Blue Shadow */
+      .light   { fill: #80D0F0; } /* Light Blue Highlight */
+      .belly   { fill: #E0F0FF; } /* Pale Belly */
+      .gills   { fill: #F06090; } /* Pink Gills */
+      .gills-s { fill: #C04070; } /* Dark Pink Shadow */
+      .eye     { fill: #101010; } /* Black Eye */
+      .white   { fill: #FFFFFF; } /* White */
+    </style>
+  </defs>
+
+  <!-- Transform: Move origin to right edge (40), then flip X axis (-1) -->
+  <g transform="translate(40, 0) scale(-1, 1)">
+
+    <!-- === TAIL (Paddle Shape) === -->
+    <!-- Tail Outline -->
+    <rect x="4" y="25" width="8" height="8" class="outline" />
+    <rect x="3" y="26" width="2" height="6" class="outline" />
+    <!-- Tail Fill -->
+    <rect x="5" y="26" width="7" height="6" class="skin" />
+    <rect x="4" y="27" width="1" height="4" class="skin" />
+    <!-- Tail Fin Detail -->
+    <rect x="6" y="27" width="5" height="4" class="light" opacity="0.5" />
+    <rect x="5" y="28" width="7" height="2" class="shadow" opacity="0.3" /> <!-- Spine -->
+
+    <!-- === BODY === -->
+    <!-- Body Outline -->
+    <rect x="12" y="22" width="16" height="12" class="outline" />
+    <rect x="13" y="21" width="14" height="12" class="outline" />
+    <!-- Body Fill -->
+    <rect x="13" y="22" width="14" height="11" class="skin" />
+    <rect x="14" y="21" width="12" height="12" class="skin" />
+    <!-- Body Shading -->
+    <rect x="16" y="31" width="8" height="1" class="shadow" />
+    <!-- Belly Patch (Round) -->
+    <rect x="16" y="23" width="8" height="8" class="belly" />
+    <rect x="17" y="22" width="6" height="1" class="belly" />
+    <rect x="17" y="31" width="6" height="1" class="belly" />
+
+    <!-- === FEET (Webbed) === -->
+    <!-- Left Foot -->
+    <rect x="11" y="32" width="5" height="3" class="outline" />
+    <rect x="12" y="33" width="3" height="1" class="skin" />
+    <!-- Right Foot -->
+    <rect x="24" y="32" width="5" height="3" class="outline" />
+    <rect x="25" y="33" width="3" height="1" class="skin" />
+
+    <!-- === ARMS (Small & Round) === -->
+    <!-- Left Arm -->
+    <rect x="11" y="24" width="3" height="4" class="outline" />
+    <rect x="12" y="25" width="1" height="2" class="skin" />
+    <!-- Right Arm -->
+    <rect x="26" y="24" width="3" height="4" class="outline" />
+    <rect x="27" y="25" width="1" height="2" class="skin" />
+
+    <!-- === HEAD (Wide & Flat) === -->
+    <!-- Head Outline -->
+    <rect x="10" y="10" width="20" height="9" class="outline" />
+    <rect x="11" y="9" width="18" height="11" class="outline" />
+    <rect x="12" y="8" width="16" height="13" class="outline" />
+    
+    <!-- Head Fill -->
+    <rect x="11" y="10" width="18" height="9" class="skin" />
+    <rect x="12" y="9" width="16" height="11" class="skin" />
+    
+    <!-- Head Highlight -->
+    <rect x="13" y="9" width="14" height="1" class="light" />
+    <rect x="14" y="10" width="12" height="1" class="light" />
+    
+    <!-- === GILLS (Axolotl Style) === -->
+    <!-- Left Gills -->
+    <rect x="7" y="11" width="3" height="2" class="gills" /> <!-- Top -->
+    <rect x="6" y="14" width="4" height="2" class="gills" /> <!-- Mid -->
+    <rect x="7" y="17" width="3" height="2" class="gills" /> <!-- Bot -->
+    <rect x="10" y="11" width="1" height="8" class="outline" /> <!-- Connection -->
+    
+    <!-- Right Gills -->
+    <rect x="30" y="11" width="3" height="2" class="gills" /> <!-- Top -->
+    <rect x="30" y="14" width="4" height="2" class="gills" /> <!-- Mid -->
+    <rect x="30" y="17" width="3" height="2" class="gills" /> <!-- Bot -->
+    <rect x="29" y="11" width="1" height="8" class="outline" /> <!-- Connection -->
+
+    <!-- === FACE === -->
+    <!-- Eyes (Wide apart) -->
+    <rect x="13" y="13" width="3" height="4" class="outline" />
+    <rect x="14" y="13" width="1" height="2" class="white" />
+    <rect x="14" y="15" width="1" height="1" class="eye" />
+    
+    <rect x="24" y="13" width="3" height="4" class="outline" />
+    <rect x="25" y="13" width="1" height="2" class="white" />
+    <rect x="25" y="15" width="1" height="1" class="eye" />
+
+    <!-- Mouth (Small smile) -->
+    <rect x="19" y="17" width="2" height="1" class="outline" />
+    <rect x="18" y="16" width="1" height="1" class="outline" opacity="0.5" />
+    <rect x="21" y="16" width="1" height="1" class="outline" opacity="0.5" />
+
+
+</g> 
+</svg>

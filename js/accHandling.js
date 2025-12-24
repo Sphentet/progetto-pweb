@@ -17,6 +17,10 @@ function togglePassword(e){
 
 
 async function manageCredentials(e){
+    
+    let type=e.target.name;
+
+
     if(document.querySelector(".message")!==null){
         document.body.removeChild(document.querySelector(".message"));
     }
@@ -31,7 +35,7 @@ async function manageCredentials(e){
         data.append('password', JSON.stringify(document.getElementById("pass").value));
 
         try{
-            let type=e.target.name;
+            
             const response=await fetch(((type=="sign-in"||type=="delete")?"../":"")+"php/accHandling.php?reqType="+type,{
                 method: 'POST',
                 body: data
@@ -55,6 +59,19 @@ async function manageCredentials(e){
     document.getElementById("packetCardButton").disabled=false;
     document.getElementById("user").value="";
     document.getElementById("pass").value="";
+
+    if(type==="sign-in"){
+        window.location.href="../index.php";
+    }
+
+
+
+    if(type==="log-in"){
+        window.location.href="html/game.php";
+    }
+
+
+
 
 }
 

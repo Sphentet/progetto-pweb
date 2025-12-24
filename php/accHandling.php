@@ -119,6 +119,9 @@ function log_in(){
         echo json_encode([$row['1'],$row['2'],$row['3'],$row['4'],$row['5'],$row['6']]);
         $pdo=null;
 
+        $_SESSION['username']=$row['username'];
+        $_SESSION['packetmons']=[$row['1'],$row['2'],$row['3'],$row['4'],$row['5'],$row['6']];
+
     }catch(PDOException $e){
         http_response_code(500);
         echo json_encode(['message'=> $e->getMessage()]);

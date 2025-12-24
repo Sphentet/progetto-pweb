@@ -1,0 +1,139 @@
+<svg width="512" height="512" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .outline { fill: #282020; } /* Dark Outline */
+      .skin    { fill: #F05830; } /* FireRed Orange */
+      .shadow  { fill: #A83020; } /* Dark Red Shadow */
+      .light   { fill: #F8A058; } /* Light Orange Highlight */
+      .belly   { fill: #F8E8A8; } /* Cream Belly */
+      .b-shad  { fill: #C8A860; } /* Belly Shadow */
+      .eye     { fill: #202030; } /* Dark Blue/Black Eye */
+      .white   { fill: #FFFFFF; } /* Eye White */
+      .fire-1  { fill: #F83030; } /* Red Fire */
+      .fire-2  { fill: #F89030; } /* Orange Fire */
+      .fire-3  { fill: #F8F050; } /* Yellow Fire */
+    </style>
+  </defs>
+
+  <!-- Transform: Move origin to right edge (40), then flip X axis (-1) -->
+  <g transform="translate(40, 0) scale(-1, 1)">
+
+    <!-- === TAIL === -->
+    <!-- Tail Outline -->
+    <rect x="6" y="21" width="2" height="2" class="outline" />
+    <rect x="7" y="23" width="2" height="2" class="outline" />
+    <rect x="8" y="25" width="2" height="2" class="outline" />
+    <rect x="10" y="26" width="4" height="3" class="outline" />
+
+
+    <rect x="8" y="21" width="1" height="1" class="outline" />
+    <rect x="9" y="22" width="1" height="1" class="outline" />
+    <rect x="10" y="23" width="1" height="2" class="outline" />
+    <rect x="9" y="27" width="1" height="1" class="outline" />
+
+    <!-- Tail Fill -->
+    <rect x="7" y="22" width="2" height="1" class="light" />
+    <rect x="8" y="23" width="2" height="2" class="skin" />
+    <rect x="9" y="25" width="2" height="2" class="skin" />
+    <rect x="10" y="27" width="2" height="1" class="shadow" />
+
+    <!-- === TAIL FLAME (Detailed) === -->
+    <!-- Base Red Layer -->
+    <rect x="3" y="17" width="5" height="5" class="fire-1" />
+    <rect x="2" y="16" width="4" height="4" class="fire-1" />
+
+    <!-- Middle Orange Layer -->
+    <rect x="4" y="18" width="3" height="3" class="fire-2" />
+    <rect x="3" y="17" width="2" height="2" class="fire-2" />
+
+    <!-- Core Yellow Layer -->
+    <rect x="5" y="19" width="2" height="2" class="fire-3" />
+    <rect x="4" y="18" width="1" height="1" class="fire-3" />
+
+    <!-- === BODY === -->
+    <!-- Body Outline -->
+    <rect x="13" y="20" width="14" height="11" class="outline" />
+    <rect x="14" y="19" width="12" height="1" class="outline" />
+    
+    <!-- Body Fill -->
+    <rect x="14" y="20" width="12" height="10" class="skin" />
+    
+    <!-- Body Shading (Right & Bottom) -->
+    <rect x="24" y="21" width="1" height="8" class="shadow" />
+    <rect x="15" y="29" width="9" height="1" class="shadow" />
+    
+    <!-- Body Highlight (Top Left) -->
+    <rect x="14" y="20" width="2" height="3" class="light" />
+
+    <!-- Belly Patch -->
+    <rect x="18" y="20" width="4" height="9" class="b-shad" />
+    <rect x="17" y="21" width="6" height="7" class="b-shad" />
+    <rect x="18" y="21" width="4" height="7" class="belly" />
+
+    <!-- === LEGS === -->
+    <!-- Left Leg -->
+    <rect x="12" y="29" width="4" height="4" class="outline" />
+    <rect x="13" y="30" width="2" height="2" class="skin" />
+    <rect x="12" y="32" width="1" height="1" class="white" />
+    <rect x="15" y="32" width="1" height="1" class="white" />
+    
+    <!-- Right Leg -->
+    <rect x="24" y="29" width="4" height="4" class="outline" />
+    <rect x="25" y="30" width="2" height="2" class="skin" />
+    <rect x="24" y="32" width="1" height="1" class="white" />
+    <rect x="27" y="32" width="1" height="1" class="white" />
+
+    <!-- === ARMS (Longer) === -->
+    <!-- Left Arm -->
+    <rect x="11" y="21" width="3" height="7" class="outline" />
+    <rect x="12" y="22" width="1" height="5" class="skin" />
+    
+    <!-- Right Arm -->
+    <rect x="26" y="21" width="3" height="7" class="outline" />
+    <rect x="27" y="22" width="1" height="5" class="skin" />
+
+    <!-- === HEAD === -->
+    <!-- Head Outline -->
+    <rect x="13" y="9" width="14" height="11" class="outline" />
+    <rect x="14" y="8" width="12" height="1" class="outline" />
+    <rect x="15" y="7" width="10" height="1" class="outline" />
+
+    <!-- Bear Ears (Bigger) -->
+    <rect x="11" y="5" width="4" height="4" class="outline" /> 
+    <rect x="12" y="6" width="2" height="2" class="skin" />    
+    
+    <rect x="25" y="5" width="4" height="4" class="outline" /> 
+    <rect x="26" y="6" width="2" height="2" class="skin" />    
+
+    <!-- Head Fill -->
+    <rect x="14" y="9" width="12" height="10" class="skin" />
+    <rect x="15" y="8" width="10" height="1" class="skin" />
+    
+    <!-- Head Shading -->
+    <rect x="16" y="8" width="8" height="2" class="light" /> <!-- Highlight -->
+    <rect x="25" y="10" width="1" height="8" class="shadow" /> <!-- Right Shadow -->
+    <rect x="15" y="18" width="9" height="1" class="shadow" /> <!-- Chin Shadow -->
+
+    <!-- Eyes -->
+    <!-- Left Eye -->
+    <rect x="15" y="12" width="3" height="4" class="outline" />
+    <rect x="16" y="12" width="1" height="2" class="white" />
+    <rect x="16" y="14" width="1" height="1" class="eye" />
+    
+    <!-- Right Eye -->
+    <rect x="22" y="12" width="3" height="4" class="outline" />
+    <rect x="23" y="12" width="1" height="2" class="white" />
+    <rect x="23" y="14" width="1" height="1" class="eye" />
+
+    <!-- Snout -->
+    <rect x="18" y="15" width="4" height="2" class="light" />
+    <rect x="19" y="15" width="1" height="1" class="outline" opacity="0.2" />
+    <rect x="20" y="15" width="1" height="1" class="outline" opacity="0.2" />
+
+    <!-- Head Flame (Red) -->
+    <rect x="18" y="6" width="4" height="3" class="fire-1" />
+    <rect x="19" y="5" width="2" height="5" class="fire-1" />
+    <rect x="19" y="6" width="2" height="3" class="fire-2" />
+    <rect x="19" y="7" width="2" height="1" class="fire-3" />
+  
+</svg>
