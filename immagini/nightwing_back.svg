@@ -65,7 +65,7 @@
 
 
 
-<!-- === WINGS (Spread Out) === -->
+    <!-- === WINGS (Spread Out) === -->
     
     <!-- Top Edge -->
     <rect x="2" y="18" width="12" height="2" class="outline" />

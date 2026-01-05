@@ -44,6 +44,8 @@ async function manageCredentials(e){
         }
         catch(e){
             alert(e.message);
+            document.getElementById("packetCardButton").disabled=false;
+            return;
         }
 
 

@@ -66,7 +66,7 @@ session_destroy();
 
                 </div>
                 
-                <button id="packetCardButton" name="sign-in">Create Account</button>
+                <button id="packetCardButton" name="sign-in">CREATE ACCOUNT</button>
             </div>
 
 

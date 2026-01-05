@@ -14,9 +14,9 @@
     </style>
   </defs>
 
-  <g>
+  <g transform="translate(40, 0) scale(-1, 1)">
 
-    <g transform="translate(40, 0) scale(-1, 1)">
+    
     
     
     <!-- === FEET === -->
@@ -101,7 +101,7 @@
 
 
 
-<!-- === BODY === -->
+    <!-- === BODY === -->
     <!-- Body Outline -->
     <rect x="12" y="21" width="16" height="10" class="outline" />
 
@@ -130,7 +130,7 @@
 
 
 
-<!-- === TAIL (Lightning Bolt Shape) === -->
+    <!-- === TAIL (Lightning Bolt Shape) === -->
     <!-- Tail Outline -->
     <rect x="22" y="27" width="4" height="3" class="outline" />
     <rect x="23" y="24" width="5" height="3" class="outline" />

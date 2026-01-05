@@ -74,8 +74,8 @@ a:hover{
 
 
 #box {
-    height:99%;
-    width:99%;
+    height:100%;
+    width:100%;
     background: rgb(176, 87, 102);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -138,9 +138,11 @@ h1 {
 #gamescreen{
     height:90vmin;
     width:90vmin;
-    background-color: #fff;
+    background-image: url("../immagini/map.svg");
+    background-size: 100% 100%;
     
     border-radius: 20px;
+    position: relative;
 
     grid-area: a2;
     align-self: center;
@@ -148,6 +150,267 @@ h1 {
 }
 
 
+
+table{
+    height:90%;
+    width:90%;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+tr{
+    height:11%;
+}
+
+td{
+    height:11%;
+    width:11%;
+}
+
+img{
+    height:90%;
+    width:90%;
+}
+
+
+
+
+
+
+
+.text{
+    height:10%;
+    width:100%;
+    background-color: white;
+    position:absolute;
+    top: 80%;
+    display: flex;
+    justify-content: center;
+    font-size: 3vmin;
+    align-items: center;
+    border-radius: 10px;
+    border: 5px solid black;
+    z-index:3;
+}
+
+
+#veil {
+    position:absolute;
+    top:0;
+    left:5%;
+    width:90%;
+    height:100%;
+    background-color:rgba(128, 128, 128, 0.7); 
+    z-index:2; 
+}
+
+
+#banner{
+    position:absolute;
+    top:30%;
+    left:5%;
+    width:90%;
+    height:40%;
+    background-color: rgb(200, 0, 0);
+    z-index:3;
+}
+
+
+.slot{
+    position:absolute;
+    top:40%;
+    left:10%;
+    width:20%;
+    height:20%;
+    background-color: rgb(215, 215, 215);
+    border-radius: 100%;
+    background-image: url("../immagini/vulpine_front.svg");
+    background-size: 110% 110%;
+    background-position: 90% 0%;
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index:4;
+}
+
+.slot:hover{
+    transform: scale(1.1);
+    box-shadow: 0 1vh 2vh rgba(5, 5, 20, 0.8);
+}
+
+#slot1{
+    left:40%;
+    background-image: url("../immagini/bubblotl_front.svg");
+    background-size: 100% 100%;
+    background-position: 0% 0%;
+}
+
+#slot2{
+    left:70%;
+    background-image: url("../immagini/ignispark_front.svg");
+    background-size: 110% 110%;
+    background-position: 90% 0%;
+}
+
+
+
+#battlescreen{
+    position:absolute;
+    top:9%;
+    left:5%;
+    width:90%;
+    height:82%;
+    background-color: rgb(222, 222, 222);
+    z-index:3;
+}
+
+#screendiv{
+    position:absolute;
+    top:59%;
+    left:5%;
+    width:90%;
+    height:2%;
+    background-color:black;
+    z-index:4;
+}
+
+#atkbutton{
+    position:absolute;
+    top:67%;
+    left:10%;
+    width:35%;
+    height:18%;
+    border: 5px solid black;
+    background-color: rgb(150, 0, 0);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index:4;
+    font-weight: bold;
+    font-size: 2.8vh;
+    color: white;
+}
+
+#changebutton{
+    position:absolute;
+    top:67%;
+    right:10%;
+    width:35%;
+    height:18%;
+    border: 5px solid black;
+    background-color: rgb(57, 141, 225);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index:4;
+    font-weight: bold;
+    font-size: 2.8vh;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 1vh 2vh rgba(5, 5, 20, 0.8);
+}
+
+
+
+
+
+
+#battlemaincharacter{
+    position:absolute;
+    top:40%;
+    left:8%;
+    width:15%;
+    height:15%;
+    z-index:4;
+}
+
+#battlemcpacket{
+    position:absolute;
+    top:40%;
+    left:25%;
+    width:15%;
+    height:15%;
+    z-index:4;
+}
+
+#mccard{
+    position:absolute;
+    top:42%;
+    right:8%;
+    width:28%;
+    height:10%;
+    background-color:rgb(163, 162, 162);
+    color: white;
+    font-weight: bold;
+    font-size: 2vh;
+    padding: 0.8%;
+    border: 2px solid black;
+    z-index:4;
+}
+
+#mchp{
+    position:absolute;
+    top:46%;
+    right:10%;
+    width:20%;
+    height:2%;
+    background-color:rgb(2, 209, 2);
+    border: 2px solid white;
+    color: black;
+    text-align: center;
+    z-index:5;
+}
+
+
+
+
+
+#battleprofessor{
+    position:absolute;
+    top:15%;
+    right:8%;
+    width:15%;
+    height:15%;
+    z-index:4;
+}
+
+#battleprofpacket{
+    position:absolute;
+    top:20%;
+    right:25%;
+    width:15%;
+    height:15%;
+    z-index:4;
+}
+
+#profcard{
+    position:absolute;
+    top:15%;
+    left:8%;
+    width:28%;
+    height:10%;
+    background-color:rgb(163, 162, 162);
+    color: white;
+    font-weight: bold;
+    font-size: 2vh;
+    padding: 0.8%;
+    border: 2px solid black;
+    z-index:4;
+}
+
+#profhp{
+    position:absolute;
+    top:19%;
+    left:14%;
+    width:20%;
+    height:2%;
+    background-color:rgb(2, 209, 2);
+    border: 2px solid white;
+    color: black;
+    text-align: center;
+    z-index:5;
+}
 
 
 

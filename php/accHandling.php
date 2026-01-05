@@ -57,9 +57,9 @@ function sign_in(){
         }
 
         $query=$pdo->prepare('INSERT INTO players(username,password) VALUES (:username, :password )');
-        $query->bindParam('username',$username);
+        $query->bindParam(':username',$username);
         $hashed_password = password_hash($password,PASSWORD_BCRYPT);
-        $query->bindParam('password',$hashed_password);
+        $query->bindParam(':password',$hashed_password);
         
         $query->execute();
 
@@ -116,11 +116,13 @@ function log_in(){
             exit;
         }
 
-        echo json_encode([$row['1'],$row['2'],$row['3'],$row['4'],$row['5'],$row['6']]);
+        $team=[$row['1'], $row['2'], $row['3'], $row['4'], $row['5'], $row['6']];
+
+        echo json_encode($team);
         $pdo=null;
 
         $_SESSION['username']=$row['username'];
-        $_SESSION['packetmons']=[$row['1'],$row['2'],$row['3'],$row['4'],$row['5'],$row['6']];
+        $_SESSION['packetmons']=$team;
 
     }catch(PDOException $e){
         http_response_code(500);
@@ -174,7 +176,7 @@ function deleteAcc(){
         }
 
         $query=$pdo->prepare('DELETE FROM players WHERE username=:username');
-        $query->bindParam('username',$username);
+        $query->bindParam(':username',$username);
         
         $query->execute();
 
