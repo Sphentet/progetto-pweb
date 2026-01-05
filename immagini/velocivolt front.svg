@@ -1,0 +1,153 @@
+<svg width="512" height="512" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .outline { fill: #202020; } /* Dark Charcoal Outline */
+      .skin    { fill: #FFCC00; } /* Cheetah Gold */
+      .shadow  { fill: #C09000; } /* Dark Gold Shadow */
+      .light   { fill: #FFE060; } /* Pale Yellow Highlight */
+      .white   { fill: #FFFFFF; } /* White Fur/Eyes */
+      .spots   { fill: #202020; } /* Black Spots */
+      .eye     { fill: #00A0E0; } /* Electric Blue Eye */
+      .nose    { fill: #FF8080; } /* Pink Nose */
+      .spark-1 { fill: #40C0F0; } /* Cyan Spark */
+      .spark-2 { fill: #A0E0FF; } /* Light Blue Spark */
+    </style>
+  </defs>
+
+  <g>
+    <!-- === TAIL (Lightning Bolt Shape) === -->
+    <!-- Tail Outline -->
+    <rect x="26" y="27" width="6" height="3" class="outline" />
+    <rect x="29" y="24" width="5" height="3" class="outline" />
+    <rect x="31" y="21" width="5" height="3" class="outline" />
+    <rect x="33" y="18" width="3" height="3" class="outline" />
+    
+    <!-- Tail Fill -->
+    <rect x="28" y="28" width="3" height="1" class="skin" />
+    <rect x="30" y="25" width="1" height="3" class="skin" />
+    <rect x="31" y="25" width="2" height="1" class="skin" />
+    <rect x="32" y="22" width="1" height="3" class="skin" />
+    <rect x="33" y="22" width="2" height="1" class="skin" />
+    <rect x="34" y="19" width="1" height="3" class="skin" />
+    
+    <!-- Tail Highlights/Details -->
+    <rect x="30" y="25" width="1" height="1" class="light" />
+    <rect x="32" y="22" width="1" height="1" class="light" />
+    <rect x="34" y="19" width="1" height="1" class="white" /> <!-- Tip glow -->
+
+    <!-- === BODY === -->
+    <!-- Body Outline -->
+    <rect x="12" y="21" width="16" height="10" class="outline" />
+
+    <!-- Body Fill -->
+    <rect x="13" y="22" width="14" height="8" class="skin" />
+    
+    <!-- Belly (White) -->
+    <rect x="17" y="23" width="6" height="5" class="white" />
+    <rect x="18" y="22" width="4" height="7" class="white" />
+    
+    <!-- Body Spots -->
+    <rect x="23" y="23" width="1" height="1" class="spots" />
+    <rect x="23" y="26" width="1" height="1" class="spots" />
+    <rect x="25" y="25" width="1" height="1" class="spots" />
+    <rect x="25" y="28" width="1" height="1" class="spots" />
+
+    <rect x="16" y="23" width="1" height="1" class="spots" />
+    <rect x="14" y="25" width="1" height="1" class="spots" />
+    <rect x="16" y="26" width="1" height="1" class="spots" />
+    <rect x="14" y="28" width="1" height="1" class="spots" />
+
+    <!-- Body Shading -->
+    <rect x="26" y="23" width="1" height="7" class="shadow" />
+    <rect x="14" y="29" width="12" height="1" class="shadow" />
+
+    <!-- === FEET === -->
+    <!-- Left Foot -->
+    <rect x="11" y="29" width="5" height="4" class="outline" />
+    <rect x="12" y="30" width="3" height="2" class="skin" />
+    <rect x="12" y="32" width="1" height="1" class="white" /> <!-- Claws/Toes -->
+    <rect x="14" y="32" width="1" height="1" class="white" />
+
+    <!-- Right Foot -->
+    <rect x="24" y="29" width="5" height="4" class="outline" />
+    <rect x="25" y="30" width="3" height="2" class="skin" />
+    <rect x="25" y="32" width="1" height="1" class="white" />
+    <rect x="27" y="32" width="1" height="1" class="white" />
+
+    <!-- === ARMS === -->
+    <!-- Left Arm -->
+    <rect x="11" y="23" width="3" height="5" class="outline" />
+    <rect x="12" y="24" width="1" height="3" class="skin" />
+    <rect x="12" y="26" width="1" height="1" class="white" /> <!-- Paw -->
+    
+    <!-- Right Arm -->
+    <rect x="26" y="23" width="3" height="5" class="outline" />
+    <rect x="27" y="24" width="1" height="3" class="skin" />
+    <rect x="27" y="26" width="1" height="1" class="white" /> <!-- Paw -->
+
+    <!-- === HEAD === -->
+    <!-- Head Outline -->
+    <rect x="11" y="10" width="18" height="12" class="outline" />
+    <rect x="12" y="9" width="16" height="1" class="outline" />
+    <rect x="13" y="21" width="14" height="1" class="outline" /> 
+
+    <!-- Ears (Cat-like) -->
+    <rect x="10" y="6" width="5" height="5" class="outline" />
+    <rect x="11" y="7" width="3" height="3" class="skin" />
+    <rect x="11" y="7" width="1" height="1" class="spots" /> <!-- Ear Tip -->
+
+    <rect x="25" y="6" width="5" height="5" class="outline" />
+    <rect x="26" y="7" width="3" height="3" class="skin" />
+    <rect x="28" y="7" width="1" height="1" class="spots" /> <!-- Ear Tip -->
+
+    <!-- Head Fill -->
+    <rect x="12" y="10" width="16" height="11" class="skin" />
+    
+    <!-- Head Spots -->
+    <rect x="19" y="9" width="2" height="1" class="spots" />
+    <rect x="13" y="11" width="1" height="1" class="spots" />
+    <rect x="26" y="11" width="1" height="1" class="spots" />
+
+    <!-- Eyes -->
+    <rect x="14" y="13" width="4" height="4" class="outline" />
+    <rect x="15" y="13" width="1" height="2" class="white" />
+    <rect x="15" y="15" width="2" height="1" class="eye" />
+
+    <rect x="22" y="13" width="4" height="4" class="outline" />
+    <rect x="23" y="13" width="1" height="2" class="white" />
+    <rect x="23" y="15" width="2" height="1" class="eye" />
+
+    <!-- Tear Marks (Cheetah signature) -->
+    <rect x="15" y="17" width="1" height="2" class="spots" />
+    <rect x="16" y="18" width="1" height="1" class="spots" />
+    
+    <rect x="24" y="17" width="1" height="2" class="spots" />
+    <rect x="23" y="18" width="1" height="1" class="spots" />
+
+    <!-- Muzzle -->
+    <rect x="17" y="17" width="6" height="3" class="white" />
+    <rect x="19" y="17" width="2" height="1" class="nose" />
+    <rect x="19" y="18" width="2" height="1" class="outline" opacity="0.2" /> <!-- Mouth line -->
+
+    <!-- === ELECTRIC SPARKS (Lightning Bolts) === -->
+    <!-- Left Bolt -->
+    <rect x="7" y="18" width="1" height="2" class="spark-1" />
+    <rect x="6" y="19" width="1" height="2" class="spark-1" />
+    <rect x="5" y="20" width="1" height="2" class="spark-1" />
+    <rect x="6" y="20" width="1" height="1" class="spark-2" /> <!-- Core -->
+
+    <!-- Right Bolt -->
+    <rect x="33" y="7" width="1" height="2" class="spark-1" />
+    <rect x="32" y="8" width="1" height="2" class="spark-1" />
+    <rect x="31" y="9" width="1" height="2" class="spark-1" />
+    <rect x="32" y="9" width="1" height="1" class="spark-2" />
+
+
+    <rect x="35" y="27" width="1" height="2" class="spark-1" />
+    <rect x="34" y="28" width="1" height="2" class="spark-1" />
+    <rect x="33" y="29" width="1" height="2" class="spark-1" />
+    <rect x="34" y="29" width="1" height="1" class="spark-2" />
+
+
+  </g>
+</svg>

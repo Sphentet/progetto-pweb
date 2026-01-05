@@ -1,0 +1,131 @@
+<svg width="512" height="512" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .outline { fill: #201030; } /* Dark Indigo Outline */
+      .fur     { fill: #705090; } /* Medium Purple Fur */
+      .f-light { fill: #9070B0; } /* Light Purple Highlight */
+      .f-shad  { fill: #503070; } /* Dark Purple Shadow */
+      .wing    { fill: #40E0D0; } /* Teal Wing Membrane */
+      .w-shad  { fill: #20B0A0; } /* Dark Teal Shadow */
+      .ear     { fill: #FF90B0; } /* Pink Inner Ear */
+      .eye     { fill: #F0D020; } /* Yellow Eye */
+      .white   { fill: #FFFFFF; } /* Eye White/Teeth */
+      .nose    { fill: #402050; } /* Dark Nose */
+    </style>
+  </defs>
+
+  <g>
+
+
+    <!-- === WINGS (Spread Out) === -->
+    
+    <!-- Left Wing -->
+    <!-- Top Edge -->
+    <rect x="2" y="18" width="12" height="2" class="outline" />
+    <rect x="1" y="19" width="2" height="2" class="outline" /> <!-- Tip -->
+    <!-- Outer Edge -->
+    <rect x="2" y="20" width="1" height="8" class="outline" />
+    <!-- Bottom Scallops -->
+    <rect x="3" y="28" width="10" height="1" class="outline" />
+    <rect x="8" y="29" width="4" height="1" class="outline" />
+    <rect x="4" y="29" width="3" height="1" class="outline" />
+    
+    <!-- Wing Fill -->
+    <rect x="3" y="20" width="10" height="8" class="wing" />
+    <rect x="3" y="20" width="10" height="1" class="white" opacity="0.3" /> <!-- Highlight -->
+    <rect x="4" y="28" width="3" height="1" class="wing" />
+    <rect x="8" y="28" width="4" height="1" class="wing" />
+    
+    <!-- Wing Bones -->
+    <rect x="7" y="20" width="1" height="7" class="outline" opacity="0.3" />
+
+
+    <!-- Right Wing -->
+    <!-- Top Edge -->
+    <rect x="26" y="18" width="12" height="2" class="outline" />
+    <rect x="37" y="19" width="2" height="2" class="outline" /> <!-- Tip -->
+    <!-- Outer Edge -->
+    <rect x="37" y="20" width="1" height="8" class="outline" />
+    <!-- Bottom Scallops -->
+    <rect x="27" y="28" width="10" height="1" class="outline" />
+    <rect x="28" y="29" width="4" height="1" class="outline" />
+    <rect x="33" y="29" width="3" height="1" class="outline" />
+
+    <!-- Wing Fill -->
+    <rect x="27" y="20" width="10" height="8" class="wing" />
+    <rect x="27" y="20" width="10" height="1" class="white" opacity="0.3" />
+    <rect x="33" y="28" width="3" height="1" class="wing" />
+    <rect x="28" y="28" width="4" height="1" class="wing" />
+
+    <!-- Wing Bones -->
+    <rect x="32" y="20" width="1" height="7" class="outline" opacity="0.3" />
+
+
+    <!-- === BODY === -->
+    <!-- Body Outline -->
+    <rect x="13" y="18" width="14" height="12" class="outline" />
+    <rect x="14" y="17" width="12" height="1" class="outline" />
+    
+    <!-- Body Fill -->
+    <rect x="14" y="18" width="12" height="11" class="fur" />
+    
+    <!-- Body Shading -->
+    <rect x="25" y="19" width="1" height="9" class="f-shad" />
+    <rect x="15" y="28" width="10" height="1" class="f-shad" />
+    <rect x="14" y="18" width="2" height="4" class="f-light" /> <!-- Highlight -->
+
+    <!-- Fur Tuft (Chest) -->
+    <rect x="18" y="19" width="4" height="4" class="f-light" opacity="0.5" />
+
+    <!-- === FEET === -->
+    <rect x="15" y="29" width="3" height="3" class="outline" />
+    <rect x="16" y="30" width="1" height="1" class="f-shad" />
+    
+    <rect x="22" y="29" width="3" height="3" class="outline" />
+    <rect x="23" y="30" width="1" height="1" class="f-shad" />
+
+    <!-- === HEAD === -->
+    <!-- Head Outline -->
+    <rect x="12" y="8" width="16" height="11" class="outline" />
+    <rect x="13" y="7" width="14" height="1" class="outline" />
+    <rect x="14" y="18" width="12" height="1" class="outline" /> <!-- Neck -->
+
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <rect x="10" y="3" width="5" height="6" class="outline" />
+    <rect x="11" y="4" width="3" height="4" class="fur" />
+    <rect x="12" y="5" width="2" height="3" class="ear" />
+    
+    <!-- Right Ear -->
+    <rect x="25" y="3" width="5" height="6" class="outline" />
+    <rect x="26" y="4" width="3" height="4" class="fur" />
+    <rect x="26" y="5" width="2" height="3" class="ear" />
+
+    <!-- Head Fill -->
+    <rect x="13" y="8" width="14" height="10" class="fur" />
+    
+    <!-- Head Shading -->
+    <rect x="14" y="8" width="4" height="2" class="f-light" />
+    <rect x="26" y="9" width="1" height="8" class="f-shad" />
+
+    <!-- Eyes -->
+    <!-- Left Eye -->
+    <rect x="14" y="11" width="4" height="4" class="outline" />
+    <rect x="15" y="11" width="1" height="2" class="white" />
+    <rect x="15" y="13" width="2" height="1" class="eye" />
+
+    <!-- Right Eye -->
+    <rect x="22" y="11" width="4" height="4" class="outline" />
+    <rect x="23" y="11" width="1" height="2" class="white" />
+    <rect x="23" y="13" width="2" height="1" class="eye" />
+
+    <!-- Nose/Mouth -->
+    <rect x="19" y="14" width="2" height="1" class="nose" />
+    <rect x="19" y="16" width="2" height="1" class="outline" opacity="0.5" />
+    
+    <!-- Fangs -->
+    <rect x="18" y="16" width="1" height="1" class="white" />
+    <rect x="21" y="16" width="1" height="1" class="white" />
+
+  </g>
+</svg>

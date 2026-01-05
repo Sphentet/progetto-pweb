@@ -1,0 +1,112 @@
+<svg width="512" height="512" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+  <defs>
+    <style>
+      .outline { fill: #282020; } /* Dark Outline */
+      .skin    { fill: #8B5A2B; } /* Muddy Brown */
+      .light   { fill: #A06A35; } /* Light Brown Highlight */
+      .shadow  { fill: #5C3A1E; } /* Dark Shadow */
+      .nose    { fill: #D08060; } /* Pinkish Snout */
+      .tusk    { fill: #F0F0D8; } /* Ivory White */
+      .hoof    { fill: #302020; } /* Dark Hooves */
+      .eye     { fill: #202030; } /* Dark Eye */
+      .white   { fill: #FFFFFF; } /* Eye White */
+      .stripe  { fill: #5C3A1E; } /* Back Stripes */
+    </style>
+  </defs>
+
+
+
+    
+    
+    <!-- === LEGS (Hind) === -->
+    <!-- Left Leg -->
+    <rect x="13" y="29" width="4" height="5" class="outline" />
+    <rect x="14" y="30" width="2" height="3" class="skin" />
+    <rect x="14" y="33" width="2" height="1" class="hoof" />
+
+    
+    <!-- Right Leg -->
+    <rect x="23" y="29" width="4" height="5" class="outline" />
+    <rect x="24" y="30" width="2" height="3" class="skin" />
+    <rect x="24" y="33" width="2" height="1" class="hoof" />
+
+    <!-- === ARMS (Forelegs) === -->
+    <!-- Left Arm -->
+    <rect x="10" y="22" width="3" height="5" class="outline" />
+    <rect x="11" y="23" width="1" height="3" class="skin" />
+    <rect x="11" y="26" width="1" height="1" class="hoof" />
+    
+
+    <!-- Right Arm -->
+    <rect x="27" y="22" width="3" height="5" class="outline" />
+    <rect x="28" y="23" width="1" height="3" class="skin" />
+    <rect x="28" y="26" width="1" height="1" class="hoof" />
+
+   
+
+
+
+<!-- === BODY === -->
+    <!-- Body Outline -->
+    <rect x="12" y="18" width="16" height="14" class="outline" />
+    <rect x="13" y="17" width="14" height="1" class="outline" />
+    
+    <!-- Body Fill -->
+    <rect x="13" y="18" width="14" height="13" class="skin" />
+    
+    <!-- Back Stripes (Pattern) -->
+    <rect x="15" y="18" width="2" height="8" class="stripe" />
+    <rect x="19" y="18" width="2" height="8" class="stripe" />
+    <rect x="23" y="18" width="2" height="8" class="stripe" />
+
+    <!-- Body Shading -->
+    <rect x="13" y="29" width="14" height="2" class="shadow" />
+    <rect x="26" y="19" width="1" height="10" class="shadow" />
+
+
+
+ <!-- === HEAD === -->
+    <!-- Head Outline -->
+    <rect x="11" y="7" width="18" height="13" class="outline" />
+
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <rect x="10" y="6" width="4" height="4" class="outline" />
+    <rect x="11" y="7" width="2" height="2" class="skin" />
+    <!-- Right Ear -->
+    <rect x="26" y="6" width="4" height="4" class="outline" />
+    <rect x="27" y="7" width="2" height="2" class="skin" />
+
+    <!-- Head Fill -->
+    <rect x="12" y="9" width="16" height="10" class="skin" />
+    <rect x="13" y="8" width="14" height="1" class="skin" />
+
+    <!-- Head Highlight -->
+    <rect x="14" y="8" width="4" height="2" class="light" />
+
+    <rect x="15" y="15" width="2" height="4" class="stripe" />
+    <rect x="19" y="15" width="2" height="4" class="stripe" />
+    <rect x="23" y="15" width="2" height="4" class="stripe" />
+
+
+
+<!-- === TAIL (Fixed) === -->
+    <!-- Tail Outline -->
+    <rect x="18" y="28" width="2" height="2" class="outline" />
+    <rect x="17" y="27" width="2" height="2" class="outline" />
+    <rect x="16" y="26" width="2" height="2" class="outline" />
+    <rect x="15" y="25" width="2" height="2" class="outline" />
+    <rect x="14" y="24" width="2" height="2" class="outline" />
+    
+    <!-- Tail Fill -->
+    <rect x="18" y="28" width="1" height="1" class="skin" />
+    <rect x="17" y="27" width="1" height="1" class="skin" />
+    <rect x="16" y="26" width="1" height="1" class="skin" />
+    <rect x="15" y="25" width="1" height="1" class="skin" />
+    
+    <!-- Tail Tip -->
+    <rect x="14" y="24" width="1" height="1" class="tusk" />
+
+
+  </g>
+</svg>
