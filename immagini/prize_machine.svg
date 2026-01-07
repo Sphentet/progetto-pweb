@@ -1,0 +1,88 @@
+<svg width="400" height="400" viewBox="0 0 30 36" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+
+  <defs>
+    <style>
+      .outline     { fill: #202020; }
+      .machine-main{ fill: #e74c3c; } /* Same red as character hat */
+      .machine-shd { fill: #c0392b; } /* Shadow red */
+      .metal       { fill: #bdc3c7; }
+      .metal-shd   { fill: #95a5a6; }
+      .glass-bg    { fill: #80caff; fill-opacity: 0.4; }
+      .glass-shine { fill: #ffffff; fill-opacity: 0.6; }
+      .chute       { fill: #2c3e50; }
+      
+      /* Capsules inside */
+      .ball-red    { fill: #e74c3c; }
+      .ball-blue   { fill: #3498db; }
+      .ball-gold   { fill: #f1c40f; }
+      .white       { fill: #ffffff; }
+    </style>
+  </defs>
+
+  <g transform="translate(5, 0)">
+    
+    <!-- === LID === -->
+    <!-- Top knob -->
+    <rect x="9" y="0" width="2" height="1" class="outline" />
+    <!-- Lid shape -->
+    <rect x="6" y="1" width="8" height="1" class="machine-main" />
+    <rect x="5" y="2" width="10" height="1" class="machine-main" />
+    <rect x="4" y="3" width="12" height="1" class="machine-shd" />
+
+    <!-- === GLASS GLOBE AREA === -->
+    <!-- Background glass tint -->
+    <rect x="3" y="4" width="14" height="12" class="glass-bg" />
+    
+    <!-- Container Outline (Sides) -->
+    <rect x="2" y="4" width="1" height="12" class="metal-shd" />
+    <rect x="17" y="4" width="1" height="12" class="metal-shd" />
+
+    <!-- PRIZES INSIDE -->
+    <!-- Ball 1 (Gold/Rare - Top Left) -->
+    <rect x="5" y="6" width="3" height="3" class="ball-gold" />
+    <rect x="6" y="6" width="1" height="1" class="white" /> <!-- Shine -->
+
+    <!-- Ball 2 (Blue - Middle Right) -->
+    <rect x="11" y="8" width="4" height="4" class="ball-blue" />
+    <rect x="11" y="8" width="4" height="2" class="white" /> <!-- Top half white -->
+    <rect x="11" y="10" width="4" height="0.5" class="outline" /> <!-- Line -->
+    
+    <!-- Ball 3 (Red/Packètball - Bottom Left) -->
+    <rect x="4" y="12" width="4" height="4" class="ball-red" />
+    <rect x="4" y="12" width="4" height="2" class="white" />
+    <rect x="4" y="14" width="4" height="0.5" class="outline" />
+    <rect x="5.5" y="13.5" width="1" height="1" class="outline" />
+
+    <!-- Glass Reflections (Front overlay) -->
+    <rect x="14" y="5" width="2" height="3" class="glass-shine" />
+    <rect x="4" y="5" width="1" height="1" class="glass-shine" />
+    
+    <!-- === BASE === -->
+    <!-- Main Body Box -->
+    <rect x="3" y="16" width="14" height="14" class="machine-main" />
+    <!-- Shadow under rim -->
+    <rect x="3" y="16" width="14" height="1" class="machine-shd" /> 
+    
+    <!-- Vertical definition lines/corners -->
+    <rect x="3" y="16" width="1" height="14" class="machine-shd" />
+    <rect x="16" y="16" width="1" height="14" class="machine-shd" />
+
+    <!-- COIN MECHANISM PLATE (Metal) -->
+    <rect x="5" y="18" width="10" height="6" class="metal" />
+    <rect x="5" y="23" width="10" height="1" class="metal-shd" />
+    
+    <!-- Knob/Crank -->
+    <rect x="9" y="19" width="2" height="4" class="outline" /> <!-- Vertical bar -->
+    <rect x="8" y="20.5" width="4" height="1" class="outline" /> <!-- Horizontal bar -->
+
+    <!-- DISPENSER CHUTE -->
+    <rect x="6" y="25" width="8" height="4" class="chute" />
+    <!-- Shadow inside chute -->
+    <rect x="6" y="25" width="8" height="1" style="fill:#000; fill-opacity:0.3" />
+    
+    <!-- FEET -->
+    <rect x="3" y="30" width="3" height="2" class="outline" />
+    <rect x="14" y="30" width="3" height="2" class="outline" />
+
+  </g> 
+</svg>

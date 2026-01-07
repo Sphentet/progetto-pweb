@@ -172,6 +172,11 @@ img{
     width:90%;
 }
 
+.prize{
+    height:100%;
+    width:100%;
+}
+
 
 
 
@@ -250,6 +255,14 @@ img{
     background-image: url("../immagini/ignispark_front.svg");
     background-size: 110% 110%;
     background-position: 90% 0%;
+}
+
+#slotprize{
+    left:35%;
+    top:35%;
+    width:30%;
+    height:30%;
+    
 }
 
 

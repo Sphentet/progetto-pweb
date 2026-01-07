@@ -19,6 +19,8 @@ session_start();
     <link rel="stylesheet" href="../css/game.css">
     <link rel="icon" href="../immagini/packètball.svg">
     <script src="../js/game.js"></script>
+    <script src="../js/game_battle.js"></script>
+    <script src="../js/game_give_packet.js"></script>
 </head>
 <body>
 
@@ -39,9 +41,9 @@ session_start();
                         <td id="0_0"></td>
                         <td id="0_1"></td>
                         <td id="0_2"></td>
-                        <td id="0_3"></td>
+                        <td id="0_3">   <img src="../immagini/prize_machine.svg" alt="prizeMachine" class="prize">    </td>
                         <td id="0_4"></td>
-                        <td id="0_5"></td>
+                        <td id="0_5">   <img src="../immagini/prize_machine.svg" alt="prizeMachine" class="prize">    </td>
                         <td id="0_6"></td>
                         <td id="0_7"></td>
                         <td id="0_8"></td>
@@ -136,7 +138,7 @@ session_start();
                         <td id="8_1"></td>
                         <td id="8_2"></td>
                         <td id="8_3"></td>
-                        <td id="8_4">   <img src="../immagini/mc_front.svg" id="mc" alt="mc">    </td>
+                        <td id="8_4"></td>
                         <td id="8_5"></td>
                         <td id="8_6"></td>
                         <td id="8_7"></td>

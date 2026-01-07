@@ -1,26 +1,6 @@
 
 "use strict"
 
-const types=[
-          /*grass water fire  elect ground flying*/
-/*grass */[   1,    2,   0.5,   1,    2,    0.5  ],
-/*water */[  0.5,   1,    2,   0.5,   2,    0.5  ],
-/*fire  */[   2,   0.5,   1,    1,   0.5,    2   ],
-/*elect.*/[  0.5,   2,    1,    1,   0.5,    2   ],
-/*ground*/[  0.5,  0.5,   2,    2,    1,     1   ],
-/*flying*/[   2,    1,   0.5,  0.5,   1,     1   ]
-];
-
-const packetstats=[
-              /* atk    def    spe*/
-/*vulpine   */[  110,    95,    65 ],
-/*bubblotl  */[   90,   110,    80 ],
-/*ignispark */[  115,    80,    85 ],
-/*velocivolt*/[   85,    65,   130 ],
-/*mudgrunt  */[   85,   115,    75 ],
-/*nightwing */[   120,   60,   100 ]
-];
-
 const packetnames=[
     "vulpine"   ,
     "bubblotl"  ,
@@ -31,10 +11,13 @@ const packetnames=[
 ];
 
 
-
 let POSITION=[8,4];
 let LOOKING=[9,4];
 let INBATTLE=false;
+let INPRIZE=false;
+let FAILPRIZE=false;
+let TEAMFULL=false;
+let COINS;
 
 let PLAYER_NAME="";
 let PLAYER_TEAM=[];
@@ -52,199 +35,122 @@ let MAP=[
 ];
 
 
-function attack(){
-    alert("attack");
-}
-
-function change(){
-    alert("change");
-}
-
-
-
-
-function startBattle(){
-
-    let bs=document.createElement('div');
-    bs.id='battlescreen';
-    document.getElementById('gamescreen').appendChild(bs);
-
-    let sd=document.createElement('div');
-    sd.id='screendiv';
-    document.getElementById('gamescreen').appendChild(sd);
-
-    let ab=document.createElement('button');
-    ab.id='atkbutton';
-    ab.innerText='Attack!';
-    document.getElementById('gamescreen').appendChild(ab);
-
-    let cb=document.createElement('button');
-    cb.id='changebutton';
-    cb.innerText='Change Packètmon';
-    document.getElementById('gamescreen').appendChild(cb);
-
-    ab.addEventListener('click', attack);
-    cb.addEventListener('click', change);
-
-
-
-
-
-
-    let bmc=document.createElement('img');
-    bmc.id='battlemaincharacter';
-    bmc.src='../immagini/mc_back.svg'
-    document.getElementById('gamescreen').appendChild(bmc);
-
-    let bmp=document.createElement('img');
-    bmp.id='battlemcpacket';
-    bmp.src='../immagini/ignispark_back.svg';
-    document.getElementById('gamescreen').appendChild(bmp);
-
-    let mcc=document.createElement('div');
-    mcc.id='mccard';
-    mcc.innerText='You';
-    document.getElementById('gamescreen').appendChild(mcc);
-
-    let mch=document.createElement('div');
-    mch.id='mchp';
-    mch.innerText='100/100';
-    document.getElementById('gamescreen').appendChild(mch);
-
-
-
-
-
-
-    let bp=document.createElement('img');
-    bp.id='battleprofessor';
-    bp.src='../immagini/professor.svg'
-    document.getElementById('gamescreen').appendChild(bp);
-
-    let bpp=document.createElement('img');
-    bpp.id='battleprofpacket';
-    bpp.src='../immagini/ignispark_front.svg';
-    document.getElementById('gamescreen').appendChild(bpp);
-
-    let profc=document.createElement('div');
-    profc.id='profcard';
-    profc.innerText='Prof.';
-    document.getElementById('gamescreen').appendChild(profc);
-
-    let profh=document.createElement('div');
-    profh.id='profhp';
-    profh.innerText='100/100';
-    document.getElementById('gamescreen').appendChild(profh);
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function moveImg(){
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(document.getElementById("mc"));
 }
 
+function veil(){
+    let veil = document.createElement('div');
+    veil.id = 'veil';
+    document.getElementById('gamescreen').appendChild(veil);
+}
+
+function text(s){
+    let message=document.createElement('div');
+    message.className='text';
+    message.innerText=s;
+    document.getElementById("gamescreen").appendChild(message);
+}
+
+function movement(y,x){
+    LOOKING[0]=POSITION[0]+y;
+    LOOKING[1]=POSITION[1]+x;
+    if(POSITION[Math.abs(x)]+x+y>=0 && POSITION[Math.abs(x)]+x+y<=8 && MAP[POSITION[0]+y][POSITION[1]+x]===0){
+        POSITION[0]+=y;
+        POSITION[1]+=x;
+        LOOKING[0]+=y;
+        LOOKING[1]+=x;
+        moveImg();
+    }
+}
+
+
 
 document.addEventListener('keydown', (event) => {
-
     let textMessage=document.querySelector(".text");
 
     if(INBATTLE&&textMessage&&event.code==="Enter"){
         document.getElementById("gamescreen").removeChild(textMessage);
-
-        let veil = document.createElement('div');
-        veil.id = 'veil';
-        document.getElementById('gamescreen').appendChild(veil);
-
+        veil();
         startBattle();
-
-
         return;
     }
 
-    if(INBATTLE) return;
+    if(INPRIZE&&textMessage&&event.code==="Enter"){
+        document.getElementById("gamescreen").removeChild(textMessage);
+        veil();
+        giveprize();
+        return;
+    }
+
+    if(FAILPRIZE&&textMessage&&event.code==="Enter"){
+        document.getElementById("gamescreen").removeChild(textMessage);
+        FAILPRIZE=false;
+        return;
+    }
+
+    if(TEAMFULL&&textMessage&&event.code==="Enter"){
+        document.getElementById("gamescreen").removeChild(textMessage);
+        TEAMFULL=false;
+        return;
+    }
+
+    if(INBATTLE||INPRIZE||FAILPRIZE||TEAMFULL) return;
 
     let img=document.getElementById("mc");
-
     switch(event.code) {
-
         case "KeyW":
         case "ArrowUp":
-
             img.src="../immagini/mc_back.svg";
-            LOOKING[0]=POSITION[0]-1;
-            LOOKING[1]=POSITION[1];
-            if(POSITION[0]>0 && MAP[(POSITION[0]-1)][POSITION[1]]===0){
-                POSITION[0]--;
-                LOOKING[0]--;
-                moveImg();
-            }
-
+            movement(-1,0);
             break;
+
         case "KeyS":
         case "ArrowDown":
-            
             img.src="../immagini/mc_front.svg";
-            LOOKING[0]=POSITION[0]+1;
-            LOOKING[1]=POSITION[1];
-            if(POSITION[0]<8 && MAP[(POSITION[0]+1)][POSITION[1]]===0){
-                POSITION[0]++;
-                LOOKING[0]++;
-                moveImg();
-            }
-
+            movement(1,0);
             break;
+
         case "KeyA":
         case "ArrowLeft":
-            
-            img.src="../immagini/mc_back.svg";
-            LOOKING[0]=POSITION[0];
-            LOOKING[1]=POSITION[1]-1;
-            if(POSITION[1]>0 && MAP[(POSITION[0])][POSITION[1]-1]===0){
-                POSITION[1]--;
-                LOOKING[1]--;
-                moveImg();
-            }
-
+            img.src="../immagini/mc_left.svg";
+            movement(0,-1);
             break;
+
         case "KeyD":
         case "ArrowRight":
-            
-            img.src="../immagini/mc_back.svg";
-            LOOKING[0]=POSITION[0];
-            LOOKING[1]=POSITION[1]+1;
-            if(POSITION[1]<8 && MAP[(POSITION[0])][POSITION[1]+1]===0){
-                POSITION[1]++;
-                LOOKING[1]++;
-                moveImg();
-            }
-
+            img.src="../immagini/mc_right.svg";
+            movement(0,1);
             break;
         
         case "Enter":
             if(LOOKING[0]===1 && LOOKING[1]===4){
                 INBATTLE=true;
-
-                let message=document.createElement('div');
-                message.className='text';
-                message.innerText="Let's battle!!!";
-                document.getElementById("gamescreen").appendChild(message);
-
+                text("Let's battle!!!");
             }
+            if(LOOKING[0]===0 && (LOOKING[1]===3||LOOKING[1]===5)){
+                if(COINS===0){
+                    FAILPRIZE=true;
+                    text("You don't have enough coins...");
+                    return;
+                }
                 
+                let teamlength=0;
+                for (let i = 0; i < PLAYER_TEAM.length; i++) {
+                    if(PLAYER_TEAM[i]!=null){
+                        teamlength++;
+                    }
+                }
+                if(teamlength >= packetnames.length){
+                    TEAMFULL=true;
+                    text("Your team is full.");
+                    return;
+                }
+
+                text("Get ready for a new Packètmon!");
+                INPRIZE=true;
+            }
             break;
 
         default:
@@ -261,6 +167,7 @@ async function fetchpacketmons(){
 
         const data = await response.json();
         PLAYER_NAME = data.username;
+        COINS = data.coins;
         if(data.packetmons[0]==null){
             chosestarter();
         }else{
@@ -275,78 +182,18 @@ async function fetchpacketmons(){
     
     
 }
-
 fetchpacketmons();
 
 
-function chosestarter(){
-    let veil = document.createElement('div');
-    veil.id = 'veil';
-    document.getElementById('gamescreen').appendChild(veil);
-
-    let message=document.createElement('div');
-    message.className='text';
-    message.innerText="Chose your starter!";
-    document.getElementById("gamescreen").appendChild(message);
-
-    let banner = document.createElement('div');
-    banner.id = 'banner';
-    document.getElementById('gamescreen').appendChild(banner);
-
-    for(let i=0;i<3;i++){
-        let slot = document.createElement('div');
-        slot.className = 'slot';
-        slot.id = 'slot'+i;
-        slot.title=packetnames[i];
-        document.addEventListener("click", givestarter);
-        document.getElementById('gamescreen').appendChild(slot);
-    }
-    
-
-    
-
-}
-
-function givestarter(e){
-    let packet=e.target.id;
-    switch (packet) {
-        case "slot0":
-            packet=packetnames[0];
-            break;
-
-        case "slot1":
-            packet=packetnames[1];
-            break;
-    
-        default:
-            packet=packetnames[2];
-            break;
-    }
-
-    givepacket(packet);
-
-}
+document.addEventListener('DOMContentLoaded', ()=>{
+    let startmc=document.createElement("img");
+    startmc.src="../immagini/mc_front.svg";
+    startmc.alt="mainCharacter";
+    startmc.id="mc";
+    document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(startmc);
+})
 
 
-
-async function givepacket(packet){
-    
-    
-    try{
-        const response=await fetch("../php/gamerequests.php?reqType=getpacket&packetmon="+packet);
-        if(!response.ok) throw new Error(response.status);
-
-        location.reload();
-        
-
-    }catch(e){
-        alert(e.message);
-        return;
-    }
-
-    
-
-}
 
 
 

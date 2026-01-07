@@ -18,7 +18,7 @@ switch ($_REQUEST["reqType"]) {
 
 
 function fetchpaket(){
-    echo json_encode(["username"=>$_SESSION["username"], "packetmons"=>$_SESSION["packetmons"]]);
+    echo json_encode(["username"=>$_SESSION["username"], "packetmons"=>$_SESSION["packetmons"], "coins"=>$_SESSION["coins"]]);
 }
 
 function getpacket(){

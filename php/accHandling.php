@@ -123,6 +123,7 @@ function log_in(){
 
         $_SESSION['username']=$row['username'];
         $_SESSION['packetmons']=$team;
+        $_SESSION['coins']=$row['coin'];
 
     }catch(PDOException $e){
         http_response_code(500);

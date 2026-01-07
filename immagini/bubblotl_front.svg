@@ -15,7 +15,7 @@
   </defs>
 
   <!-- Transform: Move origin to right edge (40), then flip X axis (-1) -->
-  <g transform="translate(39, 0) scale(-1, 1)">
+  <g transform="translate(40, -1) scale(-1, 1)">
 
     <!-- === TAIL (Paddle Shape) === -->
     <!-- Tail Outline -->
