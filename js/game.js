@@ -17,7 +17,7 @@ let INBATTLE=false;
 let INPRIZE=false;
 let FAILPRIZE=false;
 let TEAMFULL=false;
-let COINS;
+let COINS=0;
 
 let PLAYER_NAME="";
 let PLAYER_TEAM=[];
@@ -46,6 +46,12 @@ function veil(){
     document.getElementById('gamescreen').appendChild(veil);
 }
 
+function bsroot(){
+    let bsr=document.createElement('div');
+    bsr.id='battlescreenroot';
+    document.getElementById('gamescreen').appendChild(bsr);
+}
+
 function text(s){
     let message=document.createElement('div');
     message.className='text';
@@ -65,7 +71,15 @@ function movement(y,x){
     }
 }
 
-
+function teamlength(){
+    let tl=0;
+    for (let i = 0; i < PLAYER_TEAM.length; i++) {
+        if(PLAYER_TEAM[i]!=null){
+            tl++;
+        }
+    }
+    return tl;
+}
 
 document.addEventListener('keydown', (event) => {
     let textMessage=document.querySelector(".text");
@@ -84,17 +98,13 @@ document.addEventListener('keydown', (event) => {
         return;
     }
 
-    if(FAILPRIZE&&textMessage&&event.code==="Enter"){
+    if((FAILPRIZE||TEAMFULL)&&textMessage&&event.code==="Enter"){
         document.getElementById("gamescreen").removeChild(textMessage);
         FAILPRIZE=false;
-        return;
-    }
-
-    if(TEAMFULL&&textMessage&&event.code==="Enter"){
-        document.getElementById("gamescreen").removeChild(textMessage);
         TEAMFULL=false;
         return;
     }
+
 
     if(INBATTLE||INPRIZE||FAILPRIZE||TEAMFULL) return;
 
@@ -130,19 +140,14 @@ document.addEventListener('keydown', (event) => {
                 text("Let's battle!!!");
             }
             if(LOOKING[0]===0 && (LOOKING[1]===3||LOOKING[1]===5)){
-                if(COINS===0){
+                if(COINS==0){
                     FAILPRIZE=true;
                     text("You don't have enough coins...");
                     return;
                 }
                 
-                let teamlength=0;
-                for (let i = 0; i < PLAYER_TEAM.length; i++) {
-                    if(PLAYER_TEAM[i]!=null){
-                        teamlength++;
-                    }
-                }
-                if(teamlength >= packetnames.length){
+                let tl=teamlength();
+                if(tl >= packetnames.length){
                     TEAMFULL=true;
                     text("Your team is full.");
                     return;
@@ -160,29 +165,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-async function fetchpacketmons(){
-    try{
-        const response=await fetch("../php/gamerequests.php?reqType=fetchpacket");
-        if(!response.ok) throw new Error(response.status);
 
-        const data = await response.json();
-        PLAYER_NAME = data.username;
-        COINS = data.coins;
-        if(data.packetmons[0]==null){
-            chosestarter();
-        }else{
-            PLAYER_TEAM = data.packetmons; 
-        }
-        
-
-    }catch(e){
-        alert(e.message);
-        return;
-    }
-    
-    
-}
-fetchpacketmons();
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -191,6 +174,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     startmc.alt="mainCharacter";
     startmc.id="mc";
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(startmc);
+    fetchpacketcoins();
 })
 
 
