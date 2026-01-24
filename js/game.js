@@ -165,6 +165,110 @@ document.addEventListener('keydown', (event) => {
 });
 
 
+function updateTeam(){
+    for(let i=0; i<PLAYER_TEAM.length;i++){
+        let slot=document.getElementById("packet_"+i);
+        slot.classList.add(PLAYER_TEAM[i]);
+        slot.title=PLAYER_TEAM[i];
+    }
+}
+
+async function fetchbattles(){
+    try{
+        const response=await fetch("../php/gamerequests.php?reqType=fetchbatt");
+        if(!response.ok) throw new Error(response.status);
+
+        const data=await response.json();
+        BATTLENU=data.battnu;
+        BATTLE_HISTORY=data.battles;
+        LEADERBOARD=data.leaderboard;
+
+        updatehistory();
+        updateleader();
+        
+
+    }catch(e){
+        alert(e.message);
+        return;
+    }
+}
+function updatehistory(){
+    const histdiv=document.getElementById('history');
+    while(histdiv.hasChildNodes()){
+        histdiv.removeChild(histdiv.lastChild);
+    }
+
+    if(BATTLE_HISTORY.length === 0){
+        let tmp=document.createElement('div');
+        tmp.className="listitem";
+        tmp.innerText="No Battles Yet";
+        histdiv.appendChild(tmp);
+        return;
+    }
+
+    let battlerev=[...BATTLE_HISTORY].reverse();
+
+    for(let i=0; i<battlerev.length; i++){
+        let item=document.createElement('div');
+        item.className="listitem";
+        if(battlerev[i][0]==1){
+            item.innerText="You Won "+battlerev[i][1]+"-0";
+            item.classList.add("winrecord");
+        }
+        else{
+            item.innerText="You Lost 0-"+battlerev[i][1];
+            item.classList.add("lossrecord");
+        }
+        histdiv.appendChild(item);
+    }
+
+}
+function updateleader(){
+    const leaddiv=document.getElementById('leaderboard');
+    while(leaddiv.hasChildNodes()){
+        leaddiv.removeChild(leaddiv.lastChild);
+    }
+    if(LEADERBOARD.length === 0){
+        let tmp=document.createElement('div');
+        tmp.className="listitem";
+        tmp.innerText="No Players Yet";
+        leaddiv.appendChild(tmp);
+        return;
+    }
+    let leadord=[...LEADERBOARD].sort((a, b) => b[1]-a[1]);
+
+    for(let i=0; i<leadord.length; i++){
+        if(leadord[i][1]==0)continue;
+        let item=document.createElement('div');
+        item.className="listitem";
+        item.innerText="#"+(i+1)+" "+leadord[i][0]+" - "+leadord[i][1]+" Wins!";
+        if(leadord[i][0]==PLAYER_NAME){
+            item.classList.add("winrecord");
+        }
+        
+        leaddiv.appendChild(item);
+    }
+
+
+}
+
+
+async function updatebattles(o, s, w) {
+    try{
+        const response=await fetch("../php/gamerequests.php?reqType=updbatt&outcome="+o+"&score="+s+"&wins="+w);
+        if(!response.ok) throw new Error(response.status);
+        fetchbattles();
+    
+    }catch(e){
+        alert(e.message);
+        return;
+    }
+}
+
+
+
+
+
 
 
 
@@ -174,7 +278,11 @@ document.addEventListener('DOMContentLoaded', ()=>{
     startmc.alt="mainCharacter";
     startmc.id="mc";
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(startmc);
+
     fetchpacketcoins();
+    
+
+    
 })
 
 

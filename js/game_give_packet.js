@@ -14,6 +14,9 @@ async function fetchpacketcoins(){
         }else{
             PLAYER_TEAM = data.packetmons; 
         }
+
+        updateTeam();
+        fetchbattles();
         
 
     }catch(e){
@@ -23,7 +26,17 @@ async function fetchpacketcoins(){
     
     
 }
-
+async function updatecoins(n) {
+    try{
+        const response=await fetch("../php/gamerequests.php?reqType=updcoins&number="+n);
+        if(!response.ok) throw new Error(response.status);
+        fetchpacketcoins();
+    
+    }catch(e){
+        alert(e.message);
+        return;
+    }
+}
 
 function chosestarter(){
     veil();
@@ -129,17 +142,7 @@ function giveprize(){
 }
 
 
-async function updatecoins(n) {
-    try{
-        const response=await fetch("../php/gamerequests.php?reqType=updcoins&number="+n);
-        if(!response.ok) throw new Error(response.status);
-        fetchpacketcoins();
-    
-    }catch(e){
-        alert(e.message);
-        return;
-    }
-}
+
 
 
 

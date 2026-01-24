@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['username'])) {
+    header("Location: unauthorized.html");
+    exit;
+}
 
 ?>
 
@@ -16,7 +20,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PACKÈTMON</title>
-    <link rel="stylesheet" href="../css/game.css">
+    <link rel="stylesheet" href="../css/out_game.css">
+    <link rel="stylesheet" href="../css/ins_game.css">
     <link rel="icon" href="../immagini/packètball.svg">
     <script src="../js/game.js"></script>
     <script src="../js/game_battle.js"></script>
@@ -31,7 +36,13 @@ session_start();
 
         <div id="box">
 
-            <h1>PACKÈTMON</h1>
+            <div id="leftside">
+                <h1>PACKÈTMON</h1>
+
+                <div id="history"></div>
+                <div id="leaderboard"></div>
+            </div>
+            
 
             
 
@@ -149,12 +160,23 @@ session_start();
             </div>
 
 
-            
-            <div id="menu">
-                <hr>
-                <a href="../index.php">Save & Quit</a>
-                <hr>
+            <div id="rightside">
+                <div id="menu">
+                    <hr>
+                    <a href="../index.php">Save & Quit</a>
+                    <hr>
+                </div>
+
+                <div class="teamdisplay" id="packet_0"></div>
+                <div class="teamdisplay" id="packet_1"></div>
+                <div class="teamdisplay" id="packet_2"></div>
+                <div class="teamdisplay" id="packet_3"></div>
+                <div class="teamdisplay" id="packet_4"></div>
+                <div class="teamdisplay" id="packet_5"></div>
+                
+
             </div>
+            
 
 
         </div>
