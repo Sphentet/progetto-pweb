@@ -258,18 +258,33 @@ button:hover {
     z-index:4;
 }
 
-#mchp{
+#mccont{
     position:absolute;
     top:46%;
     right:10%;
     width:20%;
     height:2%;
+    background-color:white;
+    
+    z-index:5;
+}
+#mchp{
+    position:absolute;
+    top:0%;
+    width:100%;
+    height:100%;
     background-color:rgb(2, 209, 2);
     border: 2px solid white;
+    z-index:6;
+}
+#mct{
+    position:absolute;
+    width:100%;
+    height:100%;
     color: black;
     font-weight: bold;
     text-align: center;
-    z-index:5;
+    z-index:7;
 }
 
 
@@ -309,17 +324,31 @@ button:hover {
     z-index:4;
 }
 
-#profhp{
+#prcont{
     position:absolute;
     top:19%;
     left:14%;
     width:20%;
     height:2%;
-    background-color:rgb(2, 209, 2);
-    border: 2px solid white;
-    color: black;
-    font-weight: bold;
-    text-align: center;
+    background-color:white;
     z-index:5;
 }
 
+#prhp{
+    position:absolute;
+    top:0%;
+    width:100%;
+    height:100%;
+    background-color:rgb(2, 209, 2);
+    border: 2px solid white;
+    z-index:6;
+}
+#prt{
+    position:absolute;
+    width:100%;
+    height:100%;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    z-index:7;
+}

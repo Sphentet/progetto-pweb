@@ -39,6 +39,38 @@ let MCCURRENTPACKET=0;
 let PROFCURRPACKET=0;
 
 
+function saveBattleState(){
+    const battleState={
+        TEAMHP: TEAMHP,
+        PROFHP: PROFHP,
+        MCCURRENTPACKET: MCCURRENTPACKET,
+        PROFCURRPACKET: PROFCURRPACKET
+
+    };
+    localStorage.setItem('battle_state', JSON.stringify(battleState));
+}
+
+function loadBattleState(){
+    const savedState=localStorage.getItem('battle_state');
+    if (savedState){
+        const state=JSON.parse(savedState);
+        TEAMHP=state.TEAMHP;
+        PROFHP=state.PROFHP;
+        MCCURRENTPACKET=state.MCCURRENTPACKET;
+        PROFCURRPACKET=state.PROFCURRPACKET;
+
+        
+        createscreen();
+        createMc();
+        createProf();
+        
+    }
+}
+
+
+
+
+
 function damage(a,b){
     let dmg=(2*25+10)*100/250;
     dmg*=packetstats[a][0]/packetstats[b][1];
@@ -69,6 +101,7 @@ function endBattle(win) {
     TEAMHP=[];
     PROFHP=[];
     INBATTLE=false;
+    saveGameState();
     FAILPRIZE=true;
     if(win){
         if(BATTLENU>=5){
@@ -98,7 +131,8 @@ function checkKo(x){
                 return false;
             }
             PROFCURRPACKET++;
-            document.getElementById('profhp').innerText="100/100";
+            document.getElementById('prt').innerText="100/100";
+            document.getElementById('prhp').style.width="100%";
             document.getElementById('battleprofpacket').src='../immagini/'+packetnames[battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]]+'_front.svg';
             return false;
         }
@@ -133,14 +167,16 @@ function checkKo(x){
 function mcAttack(){
     let dmg=damage(packetnames.indexOf(PLAYER_TEAM[MCCURRENTPACKET]), battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]);
     PROFHP[PROFCURRPACKET]=Math.max(0, PROFHP[PROFCURRPACKET]-dmg);
-    document.getElementById('profhp').innerText=PROFHP[PROFCURRPACKET]+"/100";
+    document.getElementById('prt').innerText=PROFHP[PROFCURRPACKET]+"/100";
+    document.getElementById('prhp').style.width=PROFHP[PROFCURRPACKET]+"%";
     return checkKo(true);
 }
 
 function profAttack(){
     let dmg=damage(battles[Math.min(BATTLENU, 4)][PROFCURRPACKET], packetnames.indexOf(PLAYER_TEAM[MCCURRENTPACKET]));
     TEAMHP[MCCURRENTPACKET]=Math.max(0, TEAMHP[MCCURRENTPACKET]-dmg);
-    document.getElementById('mchp').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mct').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mchp').style.width=TEAMHP[MCCURRENTPACKET]+"%";
     return checkKo(false);
 }
 
@@ -160,6 +196,7 @@ function attack(){
             if(!cont){
                 if(document.getElementById('atkbutton')) document.getElementById('atkbutton').disabled = false;
                 if(document.getElementById('changebutton')) document.getElementById('changebutton').disabled = false;
+                saveBattleState();
                 return;
             }
             profAttack();
@@ -167,6 +204,7 @@ function attack(){
                 document.getElementById('atkbutton').disabled = false;
                 document.getElementById('changebutton').disabled = false;
             }
+            saveBattleState();
             
         }, 1400);
         
@@ -180,6 +218,7 @@ function attack(){
             if(!cont){
                 if(document.getElementById('atkbutton')) document.getElementById('atkbutton').disabled = false;
                 if(document.getElementById('changebutton')) document.getElementById('changebutton').disabled = false;
+                saveBattleState();
                 return;
             }
             mcAttack();
@@ -187,6 +226,7 @@ function attack(){
                 document.getElementById('atkbutton').disabled = false;
                 document.getElementById('changebutton').disabled = false;
             }
+            saveBattleState();
         }, 1400);
     }
 
@@ -200,7 +240,8 @@ function attack(){
 function setPacketBattle(e) {
     document.getElementById('changeBanner').remove();
     MCCURRENTPACKET=parseInt(e.target.id);
-    document.getElementById('mchp').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mct').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mchp').style.width=TEAMHP[MCCURRENTPACKET]+"%";
     document.getElementById("battlemcpacket").src='../immagini/'+PLAYER_TEAM[MCCURRENTPACKET]+'_back.svg';
     
     if(document.getElementById('atkbutton')) document.getElementById('atkbutton').disabled = true;
@@ -212,6 +253,7 @@ function setPacketBattle(e) {
             if(document.getElementById('atkbutton')) document.getElementById('atkbutton').disabled = false;
             if(document.getElementById('changebutton')) document.getElementById('changebutton').disabled = false; 
         }
+        saveBattleState();
     }, 700);
     
     
@@ -219,11 +261,14 @@ function setPacketBattle(e) {
 
 function setPacket(e){
     MCCURRENTPACKET=parseInt(e.target.id);
-    document.getElementById('mchp').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mct').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+    document.getElementById('mchp').style.width=TEAMHP[MCCURRENTPACKET]+"%";
     document.getElementById("battlemcpacket").src='../immagini/'+PLAYER_TEAM[MCCURRENTPACKET]+'_back.svg';
     document.getElementById('changeBanner').remove();
     document.getElementById('atkbutton').disabled = false;
     document.getElementById('changebutton').disabled = false;
+
+    saveBattleState();
 }
 
 
@@ -315,7 +360,7 @@ function createMc(){
     bmc.src='../immagini/mc_back.svg'
     document.getElementById('battlescreenroot').appendChild(bmc);
 
-    MCCURRENTPACKET=0;
+    
 
     let bmp=document.createElement('img');
     bmp.id='battlemcpacket';
@@ -327,14 +372,21 @@ function createMc(){
     mcc.innerText='You';
     document.getElementById('battlescreenroot').appendChild(mcc);
 
+    let mccont=document.createElement('div');
+    mccont.id="mccont";
+
+    let mct=document.createElement('div');
+    mct.id='mct';
+    mct.innerText=TEAMHP[MCCURRENTPACKET]+"/100";
+
     let mch=document.createElement('div');
     mch.id='mchp';
-    mch.innerText='100/100';
-    document.getElementById('battlescreenroot').appendChild(mch);
+    mch.style.width=TEAMHP[MCCURRENTPACKET]+"%";
+    mccont.appendChild(mch);
+    mccont.appendChild(mct);
+    document.getElementById('battlescreenroot').appendChild(mccont);
 
-    for (let tl=teamlength(); tl>0; tl--) {
-        TEAMHP.push(100);
-    }
+    
     
 }
 
@@ -344,7 +396,7 @@ function createProf(){
     bp.src='../immagini/professor.svg'
     document.getElementById('battlescreenroot').appendChild(bp);
 
-    PROFCURRPACKET=0;
+    
 
     let bpp=document.createElement('img');
     bpp.id='battleprofpacket';
@@ -356,21 +408,44 @@ function createProf(){
     profc.innerText='Prof.';
     document.getElementById('battlescreenroot').appendChild(profc);
 
-    let profh=document.createElement('div');
-    profh.id='profhp';
-    profh.innerText='100/100';
-    document.getElementById('battlescreenroot').appendChild(profh);
+    let prcont=document.createElement('div');
+    prcont.id="prcont";
 
-    for (let i=0; i<battles[Math.min(BATTLENU, 4)].length; i++) {
-        PROFHP.push(100);
-    }
+    let profht=document.createElement('div');
+    profht.id='prt';
+    profht.innerText=PROFHP[PROFCURRPACKET]+"/100";
+
+    let prh=document.createElement('div');
+    prh.id='prhp';
+    prh.style.width=PROFHP[PROFCURRPACKET]+"%";
+    prcont.appendChild(prh);
+    prcont.appendChild(profht);
+    document.getElementById('battlescreenroot').appendChild(prcont);
+
+    
     
 }
 
 function startBattle(){
+
+    
     createscreen();
+
+    MCCURRENTPACKET=0;
+    for (let tl=teamlength(); tl>0; tl--) {
+        TEAMHP.push(100);
+    }
     createMc();
+    
+
+    PROFCURRPACKET=0;
+    for (let i=0; i<battles[Math.min(BATTLENU, 4)].length; i++) {
+        PROFHP.push(100);
+    }
     createProf();
+    
+
+    saveBattleState();
 }
 
 

@@ -35,6 +35,42 @@ let MAP=[
 ];
 
 
+function saveGameState(){
+    const gameState={
+        POSITION: POSITION,
+        LOOKING: LOOKING,
+        INBATTLE: INBATTLE,
+        INPRIZE: INPRIZE
+
+    };
+    localStorage.setItem('game_state', JSON.stringify(gameState));
+}
+
+function loadGameState(){
+    const savedState=localStorage.getItem('game_state');
+    if (savedState) {
+        const state=JSON.parse(savedState);
+        POSITION=state.POSITION;
+        LOOKING=state.LOOKING;
+        INBATTLE=state.INBATTLE;
+        INPRIZE=state.INPRIZE;
+        if(INBATTLE){
+            veil();
+            loadBattleState();
+
+        }
+        if(INPRIZE){
+            veil();
+            giveprize();
+        }
+    }
+}
+
+
+
+
+
+
 
 function moveImg(){
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(document.getElementById("mc"));
@@ -69,6 +105,7 @@ function movement(y,x){
         LOOKING[1]+=x;
         moveImg();
     }
+    saveGameState();
 }
 
 function teamlength(){
@@ -138,6 +175,7 @@ document.addEventListener('keydown', (event) => {
             if(LOOKING[0]===1 && LOOKING[1]===4){
                 INBATTLE=true;
                 text("Let's battle!!!");
+                saveGameState();
             }
             if(LOOKING[0]===0 && (LOOKING[1]===3||LOOKING[1]===5)){
                 if(COINS==0){
@@ -155,12 +193,14 @@ document.addEventListener('keydown', (event) => {
 
                 text("Get ready for a new Packètmon!");
                 INPRIZE=true;
+                saveGameState();
             }
             break;
 
         default:
             return;
     }
+    
 
 });
 
@@ -171,6 +211,7 @@ function updateTeam(){
         slot.classList.add(PLAYER_TEAM[i]);
         slot.title=PLAYER_TEAM[i];
     }
+    document.getElementById("coinsnumber").innerText="Coins: "+COINS;
 }
 
 async function fetchbattles(){
@@ -272,14 +313,34 @@ async function updatebattles(o, s, w) {
 
 
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', async ()=>{
+
+    await fetchpacketcoins();
+
+    loadGameState();
+
     let startmc=document.createElement("img");
-    startmc.src="../immagini/mc_front.svg";
+    if(LOOKING[1]==POSITION[1]){
+        if(LOOKING[0]<POSITION[0]){
+            startmc.src="../immagini/mc_back.svg";
+        }
+        else{
+            startmc.src="../immagini/mc_front.svg";
+        }
+    }
+    else{
+        if(LOOKING[1]<POSITION[1]){
+            startmc.src="../immagini/mc_left.svg";
+        }
+        else{
+            startmc.src="../immagini/mc_right.svg";
+        }
+    }
+    
     startmc.alt="mainCharacter";
     startmc.id="mc";
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(startmc);
 
-    fetchpacketcoins();
     
 
     

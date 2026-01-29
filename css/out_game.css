@@ -91,10 +91,16 @@ a:hover{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr 2fr 2fr;
-    grid-template-areas: "b1 b1"
+    grid-template-areas: "b1 bm"
                          "b2 b3"
                          "b4 b5"
                          "b6 b7";
+}
+h2{
+    font-weight: bold;
+    color: #ffd700;
+    grid-area: b1;
+    padding: 2vh;
 }
 #menu{
     width:13vh;
@@ -104,7 +110,7 @@ a:hover{
     flex-direction: column;
     padding: 2vh;
 
-    grid-area: b1;
+    grid-area: bm;
     align-self: start;
     justify-self: end;
 
@@ -139,6 +145,11 @@ a:hover{
 .nightwing{
     background-image: url("../immagini/nightwing_front.svg");
 }
+
+
+
+
+
 
 
 #leftside{

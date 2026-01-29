@@ -1,6 +1,8 @@
 
 "use strict"
 
+
+
 async function fetchpacketcoins(){
     try{
         const response=await fetch("../php/gamerequests.php?reqType=fetchpacketco");
@@ -16,7 +18,7 @@ async function fetchpacketcoins(){
         }
 
         updateTeam();
-        fetchbattles();
+        await fetchbattles();
         
 
     }catch(e){
@@ -89,6 +91,7 @@ async function givepacket(packet){
         if(textMessage)
             document.getElementById("gamescreen").removeChild(textMessage);
         INPRIZE=false;
+        saveGameState();
 
     }catch(e){
         alert(e.message);

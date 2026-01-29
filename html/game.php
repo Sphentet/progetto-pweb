@@ -161,6 +161,8 @@ if (!isset($_SESSION['username'])) {
 
 
             <div id="rightside">
+                <h2 id="coinsnumber">Coins:</h2>
+
                 <div id="menu">
                     <hr>
                     <a href="../index.php">Save & Quit</a>
