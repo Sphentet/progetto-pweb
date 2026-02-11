@@ -134,6 +134,7 @@ function checkKo(x){
             document.getElementById('prt').innerText="100/100";
             document.getElementById('prhp').style.width="100%";
             document.getElementById('battleprofpacket').src='../immagini/'+packetnames[battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]]+'_front.svg';
+            document.getElementById('battleprofpacket').alt='professor '+packetnames[battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]];
             return false;
         }
         else{
@@ -243,6 +244,7 @@ function setPacketBattle(e) {
     document.getElementById('mct').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
     document.getElementById('mchp').style.width=TEAMHP[MCCURRENTPACKET]+"%";
     document.getElementById("battlemcpacket").src='../immagini/'+PLAYER_TEAM[MCCURRENTPACKET]+'_back.svg';
+    document.getElementById("battlemcpacket").alt='mc '+PLAYER_TEAM[MCCURRENTPACKET];
     
     if(document.getElementById('atkbutton')) document.getElementById('atkbutton').disabled = true;
     if(document.getElementById('changebutton')) document.getElementById('changebutton').disabled = true;
@@ -264,6 +266,7 @@ function setPacket(e){
     document.getElementById('mct').innerText=TEAMHP[MCCURRENTPACKET]+"/100";
     document.getElementById('mchp').style.width=TEAMHP[MCCURRENTPACKET]+"%";
     document.getElementById("battlemcpacket").src='../immagini/'+PLAYER_TEAM[MCCURRENTPACKET]+'_back.svg';
+    document.getElementById("battlemcpacket").alt='mc '+PLAYER_TEAM[MCCURRENTPACKET];
     document.getElementById('changeBanner').remove();
     document.getElementById('atkbutton').disabled = false;
     document.getElementById('changebutton').disabled = false;
@@ -302,8 +305,8 @@ function change(e){
         slot.className = 'changeSlot';
         slot.id=i.toString();
         if(PLAYER_TEAM[i]!=null){
+            slot.classList.add('change'+PLAYER_TEAM[i]);
             slot.title=PLAYER_TEAM[i];
-            slot.style.backgroundImage = "url('../immagini/" +PLAYER_TEAM[i]+ "_front.svg')";
             if(TEAMHP[i]===0){
                 slot.style.backgroundColor="black";
             }
@@ -357,7 +360,8 @@ function createscreen(){
 function createMc(){
     let bmc=document.createElement('img');
     bmc.id='battlemaincharacter';
-    bmc.src='../immagini/mc_back.svg'
+    bmc.src='../immagini/mc_back.svg';
+    bmc.alt='mc';
     document.getElementById('battlescreenroot').appendChild(bmc);
 
     
@@ -365,6 +369,7 @@ function createMc(){
     let bmp=document.createElement('img');
     bmp.id='battlemcpacket';
     bmp.src='../immagini/'+PLAYER_TEAM[MCCURRENTPACKET]+'_back.svg';
+    bmp.alt='mc '+PLAYER_TEAM[MCCURRENTPACKET];
     document.getElementById('battlescreenroot').appendChild(bmp);
 
     let mcc=document.createElement('div');
@@ -393,7 +398,8 @@ function createMc(){
 function createProf(){
     let bp=document.createElement('img');
     bp.id='battleprofessor';
-    bp.src='../immagini/professor.svg'
+    bp.src='../immagini/professor.svg';
+    bp.alt='professor';
     document.getElementById('battlescreenroot').appendChild(bp);
 
     
@@ -401,6 +407,7 @@ function createProf(){
     let bpp=document.createElement('img');
     bpp.id='battleprofpacket';
     bpp.src='../immagini/'+packetnames[battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]]+'_front.svg';
+    bpp.alt='professor '+packetnames[battles[Math.min(BATTLENU, 4)][PROFCURRPACKET]];
     document.getElementById('battlescreenroot').appendChild(bpp);
 
     let profc=document.createElement('div');

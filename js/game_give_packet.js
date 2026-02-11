@@ -119,7 +119,8 @@ function giveprize(){
 
     let index=0;
     let packet;
-    slot.style.backgroundImage = "url('../immagini/" + packetnames[index] + "_front.svg')";
+    slot.className = 'changeSlot';
+    slot.classList.add('change'+packetnames[index]);
     const animationInterval = setInterval(() => {
         index++;
 
@@ -136,10 +137,12 @@ function giveprize(){
                packet=packetnames[pickrandom()];
                if(PLAYER_TEAM.includes(packet)) packet=null; 
             }
-            slot.style.backgroundImage = "url('../immagini/" + packet + "_front.svg')";
+            slot.className = 'changeSlot';
+            slot.classList.add('change'+packet);
         }
         else{
-            slot.style.backgroundImage = "url('../immagini/" + packetnames[index] + "_front.svg')";
+            slot.className = 'changeSlot';
+            slot.classList.add('change'+packetnames[index]);
         }
     }, 900);
 }

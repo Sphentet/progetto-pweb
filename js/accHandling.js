@@ -56,6 +56,10 @@ async function manageCredentials(e){
         message.className='message';
         message.innerText="Credentials do not match the required patterns";
         document.body.appendChild(message);
+        document.getElementById("packetCardButton").disabled=false;
+        document.getElementById("user").value="";
+        document.getElementById("pass").value="";
+        return;
     }
 
     document.getElementById("packetCardButton").disabled=false;

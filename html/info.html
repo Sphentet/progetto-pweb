@@ -1,14 +1,13 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PACKÈTMON</title>
+    <title>PACKÈTMON - Info</title>
     <link rel="stylesheet" href="../css/menu.css">
     <link rel="icon" href="../immagini/packètball.svg">
-    <script src=""></script>
 </head>
 <body>
 
@@ -24,7 +23,130 @@
             <hr>
         </div>
 
-        <div id="infotext">informazioniskibiditoilettoilettoiletskibiiskibiditoilet</div>
+        <div id="infotext">
+            <h1>Guida del Gioco</h1>
+
+            <h2>1. Crea un Account</h2>
+                <p>Per iniziare la tua avventura, crea un account nella sezione <strong>Log-in</strong>. Segui queste regole:</p>
+                <ul>
+                    <li><strong>Username:</strong> Da 2 a 8 lettere.</li>
+                    <li><strong>Password:</strong> Deve iniziare con una Maiuscola, seguita da 2-6 lettere e terminare con una cifra (es. Pweb1).</li>
+                </ul>
+                <p>Dopo aver creato l'account verrai reindirizzato automaticamente alla pagina di log-in, inserisci le credenziali e inizia a giocare!!</p>
+            
+            <br><hr><br>
+
+            <h2>2. Gioco e Controlli</h2>
+
+                <p>Quando entri nel gioco per la prima volta dovrai scegliere uno starter, le scelte sono:</p>
+                <ul>
+                    <li><strong>Vulpine</strong> il tipo Erba</li>
+                    <li><strong>Bubblotl</strong> il tipo Acqua</li>
+                    <li><strong>Ignispark</strong> il tipo Fuoco</li>
+                </ul> 
+                <p>Scegli attentamente!</p>
+                <br>
+                <p>Esplora la mappa usando la tastiera:</p>
+                <ul>
+                    <li>Muoviti: usa <strong>WASD</strong> o le <strong>Frecce Direzionali</strong>.</li>
+                    <li>Interagisci: Premi <strong>Invio</strong> quando sei di fronte a un punto di interesse (il professore o le macchinette dei premi) per interagire.</li>
+                </ul>
+
+                <p>Scegli lo starter e combatti usando il mouse</p>
+                <br>
+                <p>Il tuo obiettivo iniziale è sconfiggere il professore nelle battaglie Packètmon per guadagnare monete. Puoi accumulare monete da usare nelle macchinette per ottenere un Packètmon casuale tra i 5 disponibili (escludendo lo starter scelto prima).</p>
+                <p>Gli altri 3 Packètmon a cui avrai accesso sono:</p>
+                <ul>
+                    <li><strong>Mudgrunt</strong> il tipo Terra</li>
+                    <li><strong>Nightwing</strong> il tipo Volante</li>
+                    <li><strong>Velocivolt</strong> il tipo Elettro</li>
+                </ul> 
+                
+                <p>Dopo aver collezionato tutti e 6 i Packètmon, potrai sfidare il professore ancora e ancora per scalare la classifica che vedrai sul lato sinistro dello schermo mentre giochi.</p>
+            
+            <br><hr><br>
+
+            <h3>Info Battaglia</h3>
+            <p>Le battaglie sono a turni: ogni turno puoi attaccare o cambiare Packètmon (se ne hai un altro disponibile). Vince chi mette KO tutti i Packètmon dell'avversario.</p>
+            
+            <p>Ogni Packètmon ha un tipo. Ecco le interazioni tra i tipi (i danni vengono moltiplicati per questi valori, il tipo della riga attacca il tipo della colonna):</p>
+            <br>
+            <table id="tipi">
+                <tr>
+                    <td></td>
+                    <td>Erba</td>
+                    <td>Acqua</td>
+                    <td>Fuoco</td>
+                    <td>Elettro</td>
+                    <td>Terra</td>
+                    <td>Volante</td>
+                </tr>
+                <tr>
+                    <td>Erba</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>0.5</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>0.5</td>
+                </tr>
+                <tr>
+                    <td>Acqua</td>
+                    <td>0.5</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>0.5</td>
+                    <td>2</td>
+                    <td>0.5</td>
+                </tr>
+                <tr>
+                    <td>Fuoco</td>
+                    <td>2</td>
+                    <td>0.5</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Elettro</td>
+                    <td>0.5</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Terra</td>
+                    <td>0.5</td>
+                    <td>0.5</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Volante</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>0.5</td>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+            </table>
+            <br>
+            <p>Per le prime 2 battaglie le interazioni tra i tipi sono disattivate, quindi scegli pure lo starter che ti piace di più!</p>
+            <br>
+            <p>Quando hai finito di giocare usa Save&Quit per tornare alla pagina di Log-in.</p>
+            <br>
+            <hr>
+            <p>Nella pagina Delete Account puoi inserire le tue credenziali per cancellare il tuo profilo</p>
+
+            
+        </div>
+        
         
 
     </div>

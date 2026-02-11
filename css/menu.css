@@ -300,13 +300,22 @@ button:hover{
     border: 3px solid #ffcc02;
     font-size: 1.5vh;
 
+    overflow-y: scroll;
+
 
 
 }
 
 
 
-
+#tipi{
+    margin: 1vh;
+    border-collapse: collapse;
+}
+td{
+    border: 1px black solid;
+    padding: 1vh;
+}
 
 
 

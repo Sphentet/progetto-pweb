@@ -1,4 +1,3 @@
-
 #gamescreen{
     height:90vmin;
     width:90vmin;
@@ -159,6 +158,30 @@ img{
     justify-content: center;
     align-items: center;
 }
+
+.changeignispark{
+    background-image: url("../immagini/ignispark_front.svg");
+}
+.changebubblotl{
+    background-image: url("../immagini/bubblotl_front.svg");
+}
+.changemudgrunt{
+    background-image: url("../immagini/mudgrunt_front.svg");
+}
+.changenightwing{
+    background-image: url("../immagini/nightwing_front.svg");
+}
+.changevulpine{
+    background-image: url("../immagini/vulpine_front.svg");
+}
+.changevelocivolt{
+    background-image: url("../immagini/velocivolt_front.svg");
+}
+
+
+
+
+
 
 #battlescreenroot{
     position:absolute;
