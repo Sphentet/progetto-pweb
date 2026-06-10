@@ -67,14 +67,10 @@ function loadGameState(){
 }
 
 
-
-
-
-
-
 function moveImg(){
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(document.getElementById("mc"));
 }
+
 
 function veil(){
     let veil = document.createElement('div');
@@ -107,7 +103,6 @@ function movement(y,x){
     }
     saveGameState();
 }
-
 function teamlength(){
     let tl=0;
     for (let i = 0; i < PLAYER_TEAM.length; i++) {
@@ -117,34 +112,27 @@ function teamlength(){
     }
     return tl;
 }
-
 document.addEventListener('keydown', (event) => {
     let textMessage=document.querySelector(".text");
-
     if(INBATTLE&&textMessage&&event.code==="Enter"){
         document.getElementById("gamescreen").removeChild(textMessage);
         veil();
         startBattle();
         return;
     }
-
     if(INPRIZE&&textMessage&&event.code==="Enter"){
         document.getElementById("gamescreen").removeChild(textMessage);
         veil();
         giveprize();
         return;
     }
-
     if((FAILPRIZE||TEAMFULL)&&textMessage&&event.code==="Enter"){
         document.getElementById("gamescreen").removeChild(textMessage);
         FAILPRIZE=false;
         TEAMFULL=false;
         return;
     }
-
-
     if(INBATTLE||INPRIZE||FAILPRIZE||TEAMFULL) return;
-
     let img=document.getElementById("mc");
     switch(event.code) {
         case "KeyW":
@@ -183,14 +171,12 @@ document.addEventListener('keydown', (event) => {
                     text("You don't have enough coins...");
                     return;
                 }
-                
                 let tl=teamlength();
                 if(tl >= packetnames.length){
                     TEAMFULL=true;
                     text("Your team is full.");
                     return;
                 }
-
                 text("Get ready for a new Packètmon!");
                 INPRIZE=true;
                 saveGameState();
@@ -200,11 +186,7 @@ document.addEventListener('keydown', (event) => {
         default:
             return;
     }
-    
-
 });
-
-
 function updateTeam(){
     for(let i=0; i<PLAYER_TEAM.length;i++){
         let slot=document.getElementById("packet_"+i);
@@ -213,21 +195,16 @@ function updateTeam(){
     }
     document.getElementById("coinsnumber").innerText="Coins: "+COINS;
 }
-
 async function fetchbattles(){
     try{
         const response=await fetch("../php/gamerequests.php?reqType=fetchbatt");
         if(!response.ok) throw new Error(response.status);
-
         const data=await response.json();
         BATTLENU=data.battnu;
         BATTLE_HISTORY=data.battles;
         LEADERBOARD=data.leaderboard;
-
         updatehistory();
         updateleader();
-        
-
     }catch(e){
         alert(e.message);
         return;
@@ -238,7 +215,6 @@ function updatehistory(){
     while(histdiv.hasChildNodes()){
         histdiv.removeChild(histdiv.lastChild);
     }
-
     if(BATTLE_HISTORY.length === 0){
         let tmp=document.createElement('div');
         tmp.className="listitem";
@@ -246,9 +222,7 @@ function updatehistory(){
         histdiv.appendChild(tmp);
         return;
     }
-
     let battlerev=[...BATTLE_HISTORY].reverse();
-
     for(let i=0; i<battlerev.length; i++){
         let item=document.createElement('div');
         item.className="listitem";
@@ -262,7 +236,6 @@ function updatehistory(){
         }
         histdiv.appendChild(item);
     }
-
 }
 function updateleader(){
     const leaddiv=document.getElementById('leaderboard');
@@ -289,36 +262,20 @@ function updateleader(){
         
         leaddiv.appendChild(item);
     }
-
-
 }
-
-
 async function updatebattles(o, s, w) {
     try{
         const response=await fetch("../php/gamerequests.php?reqType=updbatt&outcome="+o+"&score="+s+"&wins="+w);
         if(!response.ok) throw new Error(response.status);
         fetchbattles();
-    
     }catch(e){
         alert(e.message);
         return;
     }
 }
-
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', async ()=>{
-
     await fetchpacketcoins();
-
     loadGameState();
-
     let startmc=document.createElement("img");
     if(LOOKING[1]==POSITION[1]){
         if(LOOKING[0]<POSITION[0]){
@@ -336,14 +293,9 @@ document.addEventListener('DOMContentLoaded', async ()=>{
             startmc.src="../immagini/mc_right.svg";
         }
     }
-    
     startmc.alt="mainCharacter";
     startmc.id="mc";
     document.getElementById(POSITION[0]+"_"+POSITION[1]).appendChild(startmc);
-
-    
-
-    
 })
 
 

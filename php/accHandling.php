@@ -21,9 +21,7 @@ switch($_REQUEST["reqType"]){
 }
 
 
-
 function sign_in(){
-
     if(!isset($_POST["password"])||!isset($_POST["username"])){
         http_response_code(400);
         exit;
@@ -42,7 +40,6 @@ function sign_in(){
     }
 
     try{
-
         $pdo=new PDO('mysql:host=localhost;dbname=caruso_672673','root','');
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
@@ -70,11 +67,7 @@ function sign_in(){
         echo json_encode(['message'=> $e->getMessage()]);
         exit;
     }
-
 }
-
-
-
 
 function log_in(){
     if(!isset($_POST["password"])||!isset($_POST["username"])){
@@ -130,13 +123,9 @@ function log_in(){
         echo json_encode(['message'=> $e->getMessage()]);
         exit;
     }
-
 }
 
-
-
 function deleteAcc(){
-
     if(!isset($_POST["password"])||!isset($_POST["username"])){
         http_response_code(400);
         exit;
@@ -183,28 +172,9 @@ function deleteAcc(){
 
         $pdo=null;
 
-
-
-
     }catch(PDOException $e){
         http_response_code(500);
         echo json_encode(['message'=> $e->getMessage()]);
         exit;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

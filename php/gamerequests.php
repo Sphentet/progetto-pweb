@@ -23,7 +23,6 @@ switch ($_REQUEST["reqType"]) {
         http_response_code(400);
 }
 
-
 function updbatt(){
     $outcome=$_GET['outcome'];
     $score=$_GET['score'];
@@ -69,7 +68,6 @@ function updbatt(){
     }
 }
 
-
 function fetchbatt(){
     $username=$_SESSION['username'];
     try {
@@ -80,17 +78,14 @@ function fetchbatt(){
         $query=$pdo->prepare('SELECT * FROM battles WHERE player=:username');
         $query->bindParam(':username',$_SESSION['username']);
         $query->execute();
-
         
         $batth=[];
         while($row=$query->fetch(PDO::FETCH_ASSOC)){
             $batth[]=[$row['outcome'], $row['score']];
         }
-
         
         $query=$pdo->prepare('SELECT username, win FROM players');
         $query->execute();
-
         
         $wins=0;
         $leaderb=[];
@@ -98,14 +93,12 @@ function fetchbatt(){
             if($username===$row['username'])$wins= $row['win'];
             $leaderb[]=[$row['username'], $row['win']];
         }
-
     
         $pdo=null;
 
         $_SESSION['battnu']=$wins;
         $_SESSION['battles']=$batth;
         $_SESSION['leaderboard']=$leaderb;
-
 
         echo json_encode(["battnu"=>$_SESSION["battnu"], "battles"=>$_SESSION["battles"], "leaderboard"=>$_SESSION["leaderboard"]]);
         
@@ -116,12 +109,7 @@ function fetchbatt(){
     }
 }
 
-
-
-
 function fetchpacketco(){
-
-
     try {
         $pdo=new PDO('mysql:host=localhost;dbname=caruso_672673','root','');
         $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -138,7 +126,6 @@ function fetchpacketco(){
 
         $row=$query->fetch(PDO::FETCH_ASSOC);
         $team=[$row['1'], $row['2'], $row['3'], $row['4'], $row['5'], $row['6']];
-
         
         $pdo=null;
 
@@ -152,9 +139,6 @@ function fetchpacketco(){
         echo json_encode(['message'=> $e->getMessage()]);
         exit;
     }
-    
-
-    
 }
 
 function getpacket(){
@@ -203,7 +187,6 @@ function getpacket(){
     }
 }
 
-
 function updcoins(){
     $coins=$_GET['number'];
     if($coins==null){
@@ -228,17 +211,3 @@ function updcoins(){
         exit;
     }
 }
-
-
-
-
-  
- 
-
-  
- 
-
-
-
-
-
